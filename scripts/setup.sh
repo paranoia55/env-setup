@@ -1,5 +1,5 @@
 #!/bin/bash
-# Simplified Environment Setup Script v4.0
+# Simplified Environment Setup Script v1.0
 # Comprehensive development environment setup with AI tools
 
 set -euo pipefail
@@ -532,7 +532,7 @@ install_packages() {
 
 # Main function
 main() {
-    log "INFO" "Starting Environment Setup v4.0"
+    log "INFO" "Starting Environment Setup v1.0"
     log "INFO" "Detected $CPU_CORES CPU cores - using $MAX_BREW_JOBS brew jobs, $MAX_CASK_JOBS cask jobs"
     
     # Initialize progress tracking

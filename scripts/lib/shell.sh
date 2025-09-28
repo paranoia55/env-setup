@@ -1,5 +1,5 @@
 #!/bin/bash
-# Shell & Terminal Enhancement Script v4.0
+# Shell & Terminal Enhancement Script v1.0
 # Comprehensive shell configuration with multiple plugin managers and themes
 
 # Only set strict mode if not already set

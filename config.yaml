@@ -3,7 +3,7 @@
 
 metadata:
   name: "MacBook Pro Full-Stack JS/TS Setup"
-  version: "4.0.0"
+  version: "1.0.0"
   description: "Comprehensive development environment setup with AI tools"
 # Core configuration
 config:

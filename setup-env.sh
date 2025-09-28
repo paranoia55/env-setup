@@ -21,7 +21,7 @@ show_banner() {
     echo -e "${PURPLE}"
     echo "╔══════════════════════════════════════════════════════════════╗"
     echo "║                                                              ║"
-    echo "║           🚀 Environment Setup v4.0 🚀                      ║"
+    echo "║           🚀 Environment Setup v1.0 🚀                      ║"
     echo "║                                                              ║"
     echo "║    Comprehensive development environment for macOS          ║"
     echo "║    with AI tools, databases, and productivity apps          ║"
@@ -32,7 +32,7 @@ show_banner() {
 
 # Show help
 show_help() {
-    echo -e "${BLUE}Environment Setup v4.0${NC}"
+    echo -e "${BLUE}Environment Setup v1.0${NC}"
     echo ""
     echo "USAGE:"
     echo "  ./setup-env.sh [OPTION]"

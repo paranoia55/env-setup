@@ -37,7 +37,7 @@ The entire setup is driven by `config.yaml`, which serves as the single source o
 ```yaml
 metadata:
   name: "MacBook Pro Full-Stack JS/TS Setup"
-  version: "4.0.0"
+  version: "1.0.0"
 
 config:
   log_level: "info"

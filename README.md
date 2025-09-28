@@ -1,4 +1,4 @@
-# Environment Setup v4.0
+# Environment Setup v1.0
 
 A comprehensive, production-ready development environment setup for macOS with AI tools, designed for full-stack JavaScript/TypeScript development.
 
