@@ -1,0 +1,42 @@
+# Logs
+logs/
+*.log
+
+# Generated files
+docs/ENVIRONMENT_SETUP_COMPLETE.md
+docs/setup-diagram-detailed.dot
+docs/setup-diagram-detailed.svg
+docs/setup-diagram-detailed.png
+
+# Lock files
+.setup.lock
+*.lock
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment files
+.env
+.env.local
+.env-setup-github-user
+
+# Backup files
+*.bak
+*.backup

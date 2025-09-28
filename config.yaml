@@ -1,0 +1,1079 @@
+# Environment Setup Configuration
+# Single source of truth for all installations and configurations
+
+metadata:
+  name: "MacBook Pro Full-Stack JS/TS Setup"
+  version: "4.0.0"
+  description: "Comprehensive development environment setup with AI tools"
+# Core configuration
+config:
+  log_level: "info" # debug, info, warn, error
+  parallel_jobs: 3 # Max concurrent brew operations
+  retry_attempts: 3
+  retry_delay: 2 # seconds
+  timeout_seconds: 300 # Timeout for long-running commands
+  
+  # Privacy settings
+  disable_analytics: true
+  disable_telemetry: true
+  
+  # Performance settings
+  cpu_detection: "auto" # auto, manual
+  brew_job_limit_formula: "cpu_cores - 1" # Formula for brew job limit
+  cask_job_limit_formula: "(cpu_cores + 1) / 2" # Formula for cask job limit
+  
+  # Service configuration
+  services:
+    ollama:
+      host: "127.0.0.1"
+      port: 11434
+      models_path: "$HOME/.ollama/models"
+      keep_alive: "5m"
+    lm_studio:
+      host: "127.0.0.1"
+      port: 1234
+      models_path: "$HOME/.cache/lm-studio/models"
+    open_webui:
+      host: "127.0.0.1"
+      port: 3000
+      database_url: "sqlite:///open-webui.db"
+      jwt_secret: "your-secret-key-here"
+    postgresql:
+      host: "localhost"
+      port: 5432
+      user: "postgres"
+      database: "postgres"
+    mongodb:
+      host: "localhost"
+      port: 27017
+      uri: "mongodb://localhost:27017"
+    redis:
+      host: "localhost"
+      port: 6379
+      url: "redis://localhost:6379"
+    mysql:
+      host: "localhost"
+      port: 3306
+    minio:
+      host: "localhost"
+      port: 9000
+      data_path: "$HOME/minio-data"
+    grafana:
+      host: "localhost"
+      port: 3001
+    prometheus:
+      host: "localhost"
+      port: 9090
+  
+  # File paths
+  paths:
+    development_home: "$HOME/Development"
+    projects: "$HOME/Development/projects"
+    dotfiles: "$HOME/Development/dotfiles"
+    workspace: "$HOME/Development/workspace"
+    shell_config: "$HOME/.zshrc"
+    git_config: "$HOME/.gitconfig"
+    ssh_config: "$HOME/.ssh/config"
+    ssh_key: "$HOME/.ssh/id_ed25519"
+    homebrew_apple_silicon: "/opt/homebrew/bin/brew"
+    homebrew_intel: "/usr/local/bin/brew"
+  
+  # Environment variables
+  environment:
+    language: "en_US.UTF-8"
+    timezone: "America/New_York"
+    git_editor: "code --wait"
+    bat_theme: "DarkNeon"
+    fzf_options: "--height 40% --layout=reverse --border"
+    fzf_ctrl_t_options: "--preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+    fzf_alt_c_options: "--preview 'eza --tree --color=always {}'"
+    exa_colors: "di=34:ln=35:so=32:pi=33:ex=31:bd=46:cd=43:su=41:sg=46:tw=42:ow=43"
+    histsize: 10000
+    savehist: 10000
+    umask: "022"
+    timeout: 300
+  
+  # Development ports
+  ports:
+    dev: 3000
+    api: 8000
+    db: 5432
+    redis: 6379
+  
+  # Security settings
+  security:
+    ssh_key_type: "ed25519"
+    ssh_key_comment_format: "$(whoami)@$(hostname)"
+    ssh_permissions:
+      directory: "700"
+      config: "600"
+    use_keychain: true
+  
+  # UI and display settings
+  ui:
+    colors:
+      red: "\\033[0;31m"
+      green: "\\033[0;32m"
+      yellow: "\\033[1;33m"
+      blue: "\\033[0;34m"
+      nc: "\\033[0m"
+    progress_chars:
+      filled: "█"
+      empty: "░"
+    log_timestamp_format: "%Y-%m-%d %H:%M:%S"
+  
+  # Editor settings
+  editors:
+    vscode:
+      extensions_dir: "$HOME/.vscode/extensions"
+      ipc_hook_cli: ""
+      logs: ""
+    cursor:
+      extensions_dir: "$HOME/.cursor/extensions"
+      ipc_hook_cli: ""
+      logs: ""
+    void:
+      settings_dir: "$HOME/Library/Application Support/void/User"
+  
+  # Documentation settings
+  docs:
+    output_filename: "ENVIRONMENT_SETUP_COMPLETE"
+    enable_table_sorting: true
+    css_styles: |
+      body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;max-width:1200px;margin:0 auto;padding:20px;line-height:1.6}
+      table{border-collapse:collapse;width:100%;margin:20px 0}
+      th,td{border:1px solid #ddd;padding:12px;text-align:left}
+      th{background-color:#f2f2f2;font-weight:600}
+      tr:nth-child(even){background-color:#f9f9f9}
+      th[data-sortable="true"]:hover{background-color:#e0e0e0;cursor:pointer}
+  
+  # macOS System Preferences
+  macos:
+    dock:
+      tilesize: 48
+      magnification: false
+      show_recents: false
+      autohide: true
+      autohide_delay: 0
+      autohide_time_modifier: 0.5
+      position: "bottom"
+    
+    finder:
+      show_pathbar: true
+      show_statusbar: true
+      show_all_extensions: true
+      show_hidden_files: true
+      default_search_scope: "SCcf"  # Current folder
+    
+    keyboard:
+      key_repeat: 1
+      initial_key_repeat: 15
+      press_and_hold_disabled: true
+    
+    trackpad:
+      tap_to_click: true
+      three_finger_drag: true
+      natural_scrolling: true
+    
+    display:
+      night_shift: "auto"  # auto, on, off
+      true_tone: "auto"    # auto, on, off
+      auto_brightness: true
+    
+    accessibility:
+      reduce_motion: false
+      reduce_transparency: false
+      increase_contrast: false
+    
+    date_time:
+      set_timezone_automatically: true
+      show_in_menubar: true
+      use_24_hour_format: false
+    
+    sound:
+      show_volume_in_menubar: true
+      play_sound_effects: true
+      play_volume_feedback: true
+    
+    energy_saver:
+      prevent_sleep_when_display_off: false
+      put_hard_disks_to_sleep: true
+      wake_for_network_access: true
+    
+    security:
+      require_password_immediately: true
+      allow_apps_from: "AppStoreAndIdentifiedDevelopers"  # AppStore, AppStoreAndIdentifiedDevelopers, Anywhere
+      enable_filevault: "ask_user"  # true, false, ask_user
+  
+  # Model configuration
+  ollama_models:
+    - "llama2"
+  deepseek_model: "deepseek-coder-33b"
+  # AI CLI tools (installed via npm/npx)
+  ai_cli_tools:
+    - "gemini-cli" # Google Gemini CLI via npx @google/gemini-cli
+  # Python AI packages (installed via pipx)
+  ai_python_packages:
+    - "openai"
+    - "huggingface-hub"
+    - "jupyter"
+    - "ipython"
+    - "langchain"
+    - "chromadb"
+    - "transformers"
+    - "torch"
+    - "pandas"
+    - "numpy"
+    - "scikit-learn"
+
+# Shell & Terminal Configuration
+shell:
+  plugin_manager: "zinit"
+  theme: "powerlevel10k"
+  theme_style: "rainbow"
+  
+  # Zinit plugins
+  plugins:
+    - "zsh-users/zsh-autosuggestions"
+    - "zsh-users/zsh-syntax-highlighting"
+    - "zsh-users/zsh-completions"
+    - "agkozak/zsh-z"
+    - "jeffreytse/zsh-vi-mode"
+    - "hlissner/zsh-autopair"
+    - "zsh-users/zsh-history-substring-search"
+  
+  # History management
+  history:
+    size: 10000
+    dedupe: true
+    share: true
+    ignore_dups: true
+    ignore_space: true
+    fuzzy_search: true
+  
+  # Aliases
+  aliases:
+    - "ll=ls -la"
+    - "la=ls -A"
+    - "l=ls -CF"
+    - "gst=git status"
+    - "gco=git checkout"
+    - "gcb=git checkout -b"
+    - "gcm=git commit -m"
+    - "gps=git push"
+    - "gpl=git pull"
+    - "gdf=git diff"
+    - "glog=git log --oneline"
+    - "fzf-cd=cd $(find . -type d | fzf)"
+    - "fzf-history=history | fzf"
+  
+  # Functions
+  functions:
+    - "mkcd() { mkdir -p \"$1\" && cd \"$1\"; }"
+    - "fzf-cd() { cd \"$(find . -type d | fzf)\"; }"
+    - "fzf-history() { history | fzf | sed 's/^[ ]*[0-9]*[ ]*//' | tr -d '\n' | pbcopy; }"
+
+# Tmux Configuration
+tmux:
+  enabled: true
+  config_file: "~/.tmux.conf"
+  plugins:
+    - "tmux-plugins/tpm"
+    - "tmux-plugins/tmux-sensible"
+    - "tmux-plugins/tmux-resurrect"
+    - "tmux-plugins/tmux-continuum"
+  settings:
+    prefix: "C-a"
+    mouse: true
+    history_limit: 10000
+    default_shell: "/bin/zsh"
+
+# Installation categories
+categories:
+  core:
+    name: "Core Development Tools"
+    description: "Essential CLI tools and development platforms"
+    enabled: true
+  frontend:
+    name: "Frontend & IDE Tools"
+    description: "Code editors, package managers, and frontend tooling"
+    enabled: true
+  backend:
+    name: "Backend & Databases"
+    description: "Databases, message brokers, and backend services"
+    enabled: true
+  business:
+    name: "Productivity & AI"
+    description: "AI tools, productivity apps, and optional GUI applications"
+    enabled: true
+  ai:
+    name: "AI Development"
+    description: "Local AI models and development tools"
+    enabled: true
+  webui:
+    name: "Web Interfaces"
+    description: "Optional web-based interfaces for AI tools"
+    enabled: false
+# Homebrew packages by category
+packages:
+  core:
+    brew:
+      - "git"
+      - "node"
+      - "pnpm"
+      - "bun"
+      - "docker"
+      - "postgresql"
+      - "gh"
+      - "starship"
+      - "bat"
+      - "eza"
+      - "fzf"
+      - "ripgrep"
+      - "fd"
+      - "zoxide"
+      - "jump"
+      - "chezmoi"
+      - "direnv"
+      - "pre-commit"
+      - "shellcheck"
+      - "shfmt"
+      - "git-delta"
+      - "gitleaks"
+      - "sops"
+      - "age"
+      - "jq"
+      - "yq"
+      - "httpie"
+      - "grpcurl"
+      - "watchman"
+      - "entr"
+      - "tmux"
+      - "kubectl"
+      - "helm"
+      - "k9s"
+      - "kind"
+      - "colima"
+      - "mysql"
+      - "kafka"
+      - "rabbitmq"
+      - "minio"
+      - "awscli"
+      - "azure-cli"
+      - "google-cloud-sdk"
+      - "volta"
+      - "uv"
+      - "tldr"
+      - "tree"
+      - "htop"
+      - "neofetch"
+      - "procs"
+      - "dust"
+      - "hyperfine"
+      - "gping"
+      - "bandwhich"
+      - "bottom"
+      - "navi"
+  frontend:
+    brew:
+      - "yarn"
+    cask:
+      - "visual-studio-code"
+      - "warp"
+      - "iterm2"
+      - "alacritty"
+      - "wezterm"
+      - "kitty"
+  backend:
+    brew:
+      - "mongosh"
+      - "redis"
+      - "sqlite"
+      - "clickhouse-cpp"
+      - "duckdb"
+    cask:
+      - "tableplus"
+  business:
+    brew: []
+    cask:
+      - "lm-studio"
+      - "void"
+      - "cursor"
+      - "rectangle"
+      - "raycast"
+      - "insomnia"
+      - "whatsapp"
+      - "signal"
+      - "telegram"
+      - "slack"
+      - "discord"
+      - "notion"
+      - "obsidian"
+      - "vlc"
+      - "handbrake"
+      - "keka"
+      - "appcleaner"
+      - "hiddenbar"
+      - "monitorcontrol"
+      - "stats"
+      - "shottr"
+      - "alt-tab"
+      - "keepingyouawake"
+      - "meetingbar"
+      - "brave-browser"
+      - "microsoft-edge"
+      - "zoom"
+      - "microsoft-teams"
+      - "bitwarden"
+  ai:
+    brew:
+      - "ollama"
+      - "git-lfs"
+      - "aria2"
+      - "docker-compose"
+      - "prometheus"
+      - "grafana"
+      - "opensearch"
+      - "opensearch-dashboards"
+      - "python@3.11"
+      - "pipx"
+      - "jupyterlab"
+      - "miniconda"
+    cask:
+      - "dbeaver-community"
+      - "postman"
+      - "jupyterlab-app"
+# VS Code extensions by role
+extensions:
+  core:
+    - "dbaeumer.vscode-eslint"
+    - "esbenp.prettier-vscode"
+    - "ms-vscode.vscode-typescript-next"
+    - "github.vscode-pull-request-github"
+    - "eamodio.gitlens"
+    - "usernamehw.errorlens"
+    - "EditorConfig.EditorConfig"
+    - "christian-kohler.path-intellisense"
+    - "VisualStudioExptTeam.vscodeintellicode"
+    - "mikestead.dotenv"
+    - "ms-azuretools.vscode-docker"
+    - "ms-vscode-remote.remote-containers"
+    - "redhat.vscode-yaml"
+    - "eriklynd.json-tools"
+    - "yzhang.markdown-all-in-one"
+    - "wayou.vscode-todo-highlight"
+    - "oderwat.indent-rainbow"
+    - "aaron-bond.better-comments"
+    - "streetsidesoftware.code-spell-checker"
+    - "Prisma.prisma"
+    - "mtxr.sqltools"
+    - "ms-kubernetes-tools.vscode-kubernetes-tools"
+    - "rangav.vscode-thunder-client"
+    - "humao.rest-client"
+    - "bradlc.vscode-tailwindcss"
+    - "nrwl.angular-console"
+    - "svelte.svelte-vscode"
+    - "Vue.volar"
+    - "xabikos.ReactSnippets"
+    - "ms-vsliveshare.vsliveshare"
+    - "github.copilot-chat"
+    - "rvest.vs-code-prettier-eslint"
+  web:
+    - "bradlc.vscode-tailwindcss"
+    - "Vue.volar"
+    - "svelte.svelte-vscode"
+    - "xabikos.ReactSnippets"
+  k8s:
+    - "ms-kubernetes-tools.vscode-kubernetes-tools"
+    - "ms-azuretools.vscode-docker"
+  data:
+    - "mtxr.sqltools"
+    - "Prisma.prisma"
+    - "redhat.vscode-yaml"
+# Tool descriptions and documentation links
+tool_info:
+  git:
+    description: "Distributed version control"
+    docs: "https://git-scm.com/doc"
+    category: "Core Dev"
+  node:
+    description: "JavaScript runtime"
+    docs: "https://nodejs.org/en/docs"
+    category: "Core Dev"
+  pnpm:
+    description: "Fast/space‑efficient package manager"
+    docs: "https://pnpm.io/motivation"
+    category: "Core Dev"
+  bun:
+    description: "All‑in‑one JS runtime & toolkit"
+    docs: "https://bun.sh/docs"
+    category: "Core Dev"
+  docker:
+    description: "Container runtime & tooling"
+    docs: "https://docs.docker.com"
+    category: "Core Dev"
+  postgresql:
+    description: "Relational database"
+    docs: "https://www.postgresql.org/docs/"
+    category: "Databases"
+  redis:
+    description: "In‑memory data store"
+    docs: "https://redis.io/docs/latest/"
+    category: "Databases"
+  sqlite:
+    description: "Embedded relational database"
+    docs: "https://www.sqlite.org/docs.html"
+    category: "Databases"
+  mongosh:
+    description: "MongoDB shell for admin/dev"
+    docs: "https://www.mongodb.com/docs/mongodb-shell/"
+    category: "Databases"
+  clickhouse-cpp:
+    description: "ClickHouse client libraries"
+    docs: "https://clickhouse.com/docs"
+    category: "Databases"
+  duckdb:
+    description: "In‑process analytical DB"
+    docs: "https://duckdb.org/docs/"
+    category: "Databases"
+  opensearch:
+    description: "Search/analytics engine (Elasticsearch fork)"
+    docs: "https://opensearch.org/docs/latest/"
+    category: "Databases"
+  tableplus:
+    description: "GUI database client"
+    docs: "https://tableplus.com/blog"
+    category: "Databases"
+  visual-studio-code:
+    description: "Code editor"
+    docs: "https://code.visualstudio.com/docs"
+    category: "Frontend"
+  yarn:
+    description: "Package manager alternative to npm"
+    docs: "https://yarnpkg.com/getting-started"
+    category: "Frontend"
+  starship:
+    description: "Minimal, fast shell prompt"
+    docs: "https://starship.rs/guide/"
+    category: "Terminal"
+  eza:
+    description: "Modern ls replacement"
+    docs: "https://github.com/eza-community/eza"
+    category: "Terminal"
+  bat:
+    description: "cat with syntax highlighting"
+    docs: "https://github.com/sharkdp/bat"
+    category: "Terminal"
+  fzf:
+    description: "Fuzzy finder"
+    docs: "https://github.com/junegunn/fzf"
+    category: "Terminal"
+  ripgrep:
+    description: "Fast recursive grep"
+    docs: "https://github.com/BurntSushi/ripgrep"
+    category: "Terminal"
+  fd:
+    description: "Simple, fast find"
+    docs: "https://github.com/sharkdp/fd"
+    category: "Terminal"
+  zoxide:
+    description: "Smarter cd command"
+    docs: "https://github.com/ajeetdsouza/zoxide"
+    category: "Terminal"
+  jump:
+    description: "Quick directory navigation"
+    docs: "https://github.com/gsamokovarov/jump"
+    category: "Terminal"
+  gh:
+    description: "GitHub from the terminal"
+    docs: "https://cli.github.com/manual/"
+    category: "Dev UX"
+  chezmoi:
+    description: "Manage dotfiles securely"
+    docs: "https://www.chezmoi.io/user-guide/"
+    category: "Dotfiles"
+  ollama:
+    description: "Run LLMs locally"
+    docs: "https://github.com/ollama/ollama"
+    category: "AI Runtime"
+  llama2:
+    description: "General‑purpose local LLM via Ollama"
+    docs: "https://ollama.com/library/llama2"
+    category: "AI Model"
+  lm-studio:
+    description: "Desktop app to browse/run LLMs"
+    docs: "https://lmstudio.ai/docs"
+    category: "AI Tooling"
+  open-webui:
+    description: "Web UI for local LLMs (Docker)"
+    docs: "https://docs.openwebui.com/"
+    category: "AI UI"
+  pipx:
+    description: "Install/Run Python apps in isolated envs"
+    docs: "https://pipx.pypa.io/stable/"
+    category: "Python"
+  openai-cli:
+    description: "CLI for OpenAI APIs (via pipx)"
+    docs: "https://github.com/openai/openai-cli"
+    category: "AI Tooling"
+  huggingface-cli:
+    description: "Hugging Face Hub CLI for model management"
+    docs: "https://huggingface.co/docs/huggingface_hub/quick-start"
+    category: "AI Tooling"
+  jupyter:
+    description: "Interactive notebook environment for AI/ML"
+    docs: "https://jupyter.org/documentation"
+    category: "AI Development"
+  ipython:
+    description: "Enhanced Python REPL for AI development"
+    docs: "https://ipython.org/documentation.html"
+    category: "AI Development"
+  pandas:
+    description: "Data analysis library for AI/ML"
+    docs: "https://pandas.pydata.org/docs/"
+    category: "AI Development"
+  numpy:
+    description: "Numerical computing library for AI/ML"
+    docs: "https://numpy.org/doc/stable/"
+    category: "AI Development"
+  scikit-learn:
+    description: "Machine learning library for Python"
+    docs: "https://scikit-learn.org/stable/"
+    category: "AI Development"
+  langchain:
+    description: "Framework for LLM applications"
+    docs: "https://python.langchain.com/docs/get_started/introduction"
+    category: "AI Development"
+  chromadb:
+    description: "Vector database for AI embeddings"
+    docs: "https://docs.trychroma.com/"
+    category: "AI Database"
+  git-lfs:
+    description: "Large file storage for AI models"
+    docs: "https://git-lfs.github.io/"
+    category: "AI Tooling"
+  aria2:
+    description: "Fast downloader for large AI models"
+    docs: "https://aria2.github.io/manual/en/html/"
+    category: "AI Tooling"
+  docker-compose:
+    description: "Multi-container AI applications"
+    docs: "https://docs.docker.com/compose/"
+    category: "AI Infrastructure"
+  prometheus:
+    description: "Monitoring for AI workloads"
+    docs: "https://prometheus.io/docs/"
+    category: "AI Monitoring"
+  grafana:
+    description: "Visualization for AI metrics"
+    docs: "https://grafana.com/docs/"
+    category: "AI Monitoring"
+  opensearch:
+    description: "Open source search engine with ML features (Elasticsearch alternative)"
+    docs: "https://opensearch.org/docs/latest/"
+    category: "AI Database"
+  opensearch-dashboards:
+    description: "Data visualization for OpenSearch (Kibana alternative)"
+    docs: "https://opensearch.org/docs/latest/dashboards/"
+    category: "AI Monitoring"
+  open-webui:
+    description: "Web UI for local LLMs (Docker)"
+    docs: "https://docs.openwebui.com/"
+    category: "AI UI"
+  jupyterlab:
+    description: "JupyterLab interactive development environment"
+    docs: "https://jupyterlab.readthedocs.io/"
+    category: "AI Development"
+  jupyterlab-app:
+    description: "JupyterLab desktop application"
+    docs: "https://jupyterlab.readthedocs.io/"
+    category: "AI Development"
+  miniconda:
+    description: "Minimal Python data science platform (Anaconda alternative)"
+    docs: "https://docs.conda.io/en/latest/miniconda.html"
+    category: "AI Development"
+  dbeaver:
+    description: "Universal database tool for AI data"
+    docs: "https://dbeaver.io/docs/"
+    category: "AI Database"
+  postman:
+    description: "API testing for AI endpoints"
+    docs: "https://learning.postman.com/docs/"
+    category: "AI Tooling"
+  void:
+    description: "Open source AI code editor (Cursor alternative)"
+    docs: "https://voideditor.com/"
+    category: "AI Tooling"
+  cursor:
+    description: "AI-powered code editor"
+    docs: "https://cursor.sh/"
+    category: "AI Tooling"
+  gemini-cli:
+    description: "Google Gemini CLI for terminal AI (free tier available)"
+    docs: "https://github.com/google-gemini/gemini-cli"
+    category: "AI Tooling"
+  warp:
+    description: "AI-powered terminal with modern UI and intelligent command suggestions"
+    docs: "https://docs.warp.dev/"
+    category: "Terminal"
+  iterm2:
+    description: "Advanced terminal emulator for macOS with split panes and customization"
+    docs: "https://iterm2.com/documentation.html"
+    category: "Terminal"
+  alacritty:
+    description: "GPU-accelerated cross-platform terminal emulator"
+    docs: "https://github.com/alacritty/alacritty"
+    category: "Terminal"
+  wezterm:
+    description: "GPU-accelerated terminal emulator and multiplexer"
+    docs: "https://wezfurlong.org/wezterm/"
+    category: "Terminal"
+  kitty:
+    description: "GPU-accelerated terminal emulator with advanced features"
+    docs: "https://sw.kovidgoyal.net/kitty/"
+    category: "Terminal"
+  []:
+    name: "[]"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/[]"
+  age:
+    name: "age"
+    description: "Simple file encryption"
+    category: "Dev UX"
+    docs: "https://github.com/FiloSottile/age"
+  alt-tab:
+    name: "alt-tab"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/alt-tab"
+  appcleaner:
+    name: "appcleaner"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/appcleaner"
+  awscli:
+    name: "awscli"
+    description: "AWS command-line interface"
+    category: "Dev UX"
+    docs: "https://docs.aws.amazon.com/cli/"
+  azure-cli:
+    name: "azure-cli"
+    description: "Azure command-line interface"
+    category: "Dev UX"
+    docs: "https://docs.microsoft.com/en-us/cli/azure/"
+  bandwhich:
+    name: "bandwhich"
+    description: "Bandwidth utilization tool"
+    category: "Terminal"
+    docs: "https://github.com/imsnif/bandwhich"
+  bitwarden:
+    name: "bitwarden"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/bitwarden"
+  bottom:
+    name: "bottom"
+    description: "System monitor"
+    category: "Terminal"
+    docs: "https://github.com/ClementTsang/bottom"
+  brave-browser:
+    name: "brave-browser"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/brave-browser"
+  colima:
+    name: "colima"
+    description: "Container runtime for macOS"
+    category: "Dev UX"
+    docs: "https://github.com/abiosoft/colima"
+  dbeaver-community:
+    name: "dbeaver-community"
+    description: "Universal database tool for AI data"
+    category: "AI Tooling"
+    docs: "https://dbeaver.io/docs/"
+  direnv:
+    name: "direnv"
+    description: "Environment variable management"
+    category: "Dev UX"
+    docs: "https://direnv.net/"
+  discord:
+    name: "discord"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/discord"
+  dust:
+    name: "dust"
+    description: "More intuitive version of du"
+    category: "Terminal"
+    docs: "https://github.com/bootandy/dust"
+  entr:
+    name: "entr"
+    description: "Run arbitrary commands when files change"
+    category: "Dev UX"
+    docs: "https://github.com/eradman/entr"
+  git-delta:
+    name: "git-delta"
+    description: "Syntax-highlighting pager for git"
+    category: "Dev UX"
+    docs: "https://github.com/dandavison/delta"
+  gitleaks:
+    name: "gitleaks"
+    description: "Git secrets scanner"
+    category: "Dev UX"
+    docs: "https://github.com/gitleaks/gitleaks"
+  google-cloud-sdk:
+    name: "google-cloud-sdk"
+    description: "Google Cloud SDK"
+    category: "Dev UX"
+    docs: "https://cloud.google.com/sdk/docs"
+  gping:
+    name: "gping"
+    description: "Ping with a graph"
+    category: "Terminal"
+    docs: "https://github.com/orf/gping"
+  grpcurl:
+    name: "grpcurl"
+    description: "gRPC command-line client"
+    category: "Dev UX"
+    docs: "https://github.com/fullstorydev/grpcurl"
+  handbrake:
+    name: "handbrake"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/handbrake"
+  helm:
+    name: "helm"
+    description: "Kubernetes package manager"
+    category: "Dev UX"
+    docs: "https://helm.sh/docs/"
+  hiddenbar:
+    name: "hiddenbar"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/hiddenbar"
+  htop:
+    name: "htop"
+    description: "Interactive process viewer"
+    category: "Terminal"
+    docs: "https://github.com/htop-dev/htop"
+  httpie:
+    name: "httpie"
+    description: "Command-line HTTP client"
+    category: "Dev UX"
+    docs: "https://httpie.io/"
+  hyperfine:
+    name: "hyperfine"
+    description: "Command-line benchmarking tool"
+    category: "Terminal"
+    docs: "https://github.com/sharkdp/hyperfine"
+  insomnia:
+    name: "insomnia"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/insomnia"
+  jq:
+    name: "jq"
+    description: "JSON processor"
+    category: "Dev UX"
+    docs: "https://github.com/jqlang/jq"
+  k9s:
+    name: "k9s"
+    description: "Kubernetes TUI"
+    category: "Dev UX"
+    docs: "https://k9scli.io/"
+  kafka:
+    name: "kafka"
+    description: "Distributed streaming platform"
+    category: "Dev UX"
+    docs: "https://kafka.apache.org/documentation/"
+  keepingyouawake:
+    name: "keepingyouawake"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/keepingyouawake"
+  keka:
+    name: "keka"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/keka"
+  kind:
+    name: "kind"
+    description: "Kubernetes in Docker"
+    category: "Dev UX"
+    docs: "https://kind.sigs.k8s.io/"
+  kubectl:
+    name: "kubectl"
+    description: "Kubernetes command-line tool"
+    category: "Dev UX"
+    docs: "https://kubernetes.io/docs/reference/kubectl/"
+  meetingbar:
+    name: "meetingbar"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/meetingbar"
+  microsoft-edge:
+    name: "microsoft-edge"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/microsoft-edge"
+  microsoft-teams:
+    name: "microsoft-teams"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/microsoft-teams"
+  minio:
+    name: "minio"
+    description: "Object storage server"
+    category: "Dev UX"
+    docs: "https://docs.min.io/"
+  monitorcontrol:
+    name: "monitorcontrol"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/monitorcontrol"
+  mysql:
+    name: "mysql"
+    description: "MySQL database server"
+    category: "Databases"
+    docs: "https://dev.mysql.com/doc/"
+  navi:
+    name: "navi"
+    description: "Interactive cheatsheet tool"
+    category: "Terminal"
+    docs: "https://github.com/denisidoro/navi"
+  neofetch:
+    name: "neofetch"
+    description: "System information tool"
+    category: "Terminal"
+    docs: "https://github.com/dylanaraps/neofetch"
+  notion:
+    name: "notion"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/notion"
+  obsidian:
+    name: "obsidian"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/obsidian"
+  pre-commit:
+    name: "pre-commit"
+    description: "Git hooks framework"
+    category: "Dev UX"
+    docs: "https://pre-commit.com/"
+  procs:
+    name: "procs"
+    description: "Modern replacement for ps"
+    category: "Terminal"
+    docs: "https://github.com/dalance/procs"
+  python@3.11:
+    name: "python@3.11"
+    description: "Python 3.11 interpreter"
+    category: "Core Dev"
+    docs: "https://www.python.org/docs/"
+  rabbitmq:
+    name: "rabbitmq"
+    description: "Message broker"
+    category: "Dev UX"
+    docs: "https://www.rabbitmq.com/documentation.html"
+  raycast:
+    name: "raycast"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/raycast"
+  rectangle:
+    name: "rectangle"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/rectangle"
+  shellcheck:
+    name: "shellcheck"
+    description: "Shell script static analysis"
+    category: "Dev UX"
+    docs: "https://github.com/koalaman/shellcheck"
+  shfmt:
+    name: "shfmt"
+    description: "Shell script formatter"
+    category: "Dev UX"
+    docs: "https://github.com/mvdan/sh"
+  shottr:
+    name: "shottr"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/shottr"
+  signal:
+    name: "signal"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/signal"
+  slack:
+    name: "slack"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/slack"
+  sops:
+    name: "sops"
+    description: "Secrets management"
+    category: "Dev UX"
+    docs: "https://github.com/mozilla/sops"
+  stats:
+    name: "stats"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/stats"
+  telegram:
+    name: "telegram"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/telegram"
+  tldr:
+    name: "tldr"
+    description: "Simplified man pages"
+    category: "Terminal"
+    docs: "https://github.com/tldr-pages/tldr"
+  tmux:
+    name: "tmux"
+    description: "Terminal multiplexer"
+    category: "Dev UX"
+    docs: "https://github.com/tmux/tmux"
+  tree:
+    name: "tree"
+    description: "Directory tree viewer"
+    category: "Terminal"
+    docs: "https://github.com/old-man-programmer/tree"
+  uv:
+    name: "uv"
+    description: "Fast Python package installer"
+    category: "Core Dev"
+    docs: "https://docs.astral.sh/uv/"
+  vlc:
+    name: "vlc"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/vlc"
+  volta:
+    name: "volta"
+    description: "JavaScript tool manager"
+    category: "Core Dev"
+    docs: "https://docs.volta.sh/"
+  watchman:
+    name: "watchman"
+    description: "File watching service"
+    category: "Dev UX"
+    docs: "https://facebook.github.io/watchman/"
+  whatsapp:
+    name: "whatsapp"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/whatsapp"
+  yq:
+    name: "yq"
+    description: "YAML processor"
+    category: "Dev UX"
+    docs: "https://github.com/mikefarah/yq"
+  zoom:
+    name: "zoom"
+    description: "cask package"
+    category: "Unknown"
+    docs: "https://github.com/zoom"

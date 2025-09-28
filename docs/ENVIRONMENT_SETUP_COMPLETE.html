@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ENVIRONMENT_SETUP_COMPLETE</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/dev/fd/63" />
+</head>
+<body>
+<h1 id="environment-setup---complete-documentation">Environment Setup -
+Complete Documentation</h1>
+<p><strong>Version:</strong> 4.0.0<br />
+<strong>Generated:</strong> $(date)<br />
+<strong>Total Packages:</strong> 113+ tools and applications</p>
+<h2 id="quick-start">🚀 Quick Start</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone and run</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/your-username/env-setup.git</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> env-setup</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">./setup-env.sh</span></span></code></pre></div>
+<h2 id="what-this-setup-does">📋 What This Setup Does</h2>
+<p>This comprehensive environment setup installs and configures:</p>
+<ul>
+<li><strong>113+ Packages</strong> - Homebrew packages and
+applications</li>
+<li><strong>20+ VS Code Extensions</strong> - Essential development
+extensions</li>
+<li><strong>Complete Dotfiles</strong> - Shell, Git, SSH, and editor
+configurations</li>
+<li><strong>Environment Variables</strong> - 50+ variables for seamless
+development</li>
+<li><strong>AI Tools</strong> - Local LLMs, AI editors, and development
+assistants</li>
+<li><strong>Terminal Apps</strong> - Modern terminals with AI
+capabilities</li>
+<li><strong>Database Services</strong> - PostgreSQL, MongoDB, Redis, and
+more</li>
+<li><strong>Development Services</strong> - Monitoring, object storage,
+and APIs</li>
+</ul>
+<h2 id="installed-packages">📦 Installed Packages</h2>
+<p>The following packages are installed via Homebrew (brew) and Homebrew
+Cask (cask):</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Name</th>
+<th>Category</th>
+<th>Description</th>
+<th>Docs</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>opensearch</strong></td>
+<td>AI Database</td>
+<td>Open source search engine with ML features (Elasticsearch
+alternative)</td>
+<td><a href="https://opensearch.org/docs/latest/">opensearch</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>jupyterlab</strong></td>
+<td>AI Development</td>
+<td>JupyterLab interactive development environment</td>
+<td><a href="https://jupyterlab.readthedocs.io/">jupyterlab</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>jupyterlab-app</strong></td>
+<td>AI Development</td>
+<td>JupyterLab desktop application</td>
+<td><a href="https://jupyterlab.readthedocs.io/">jupyterlab-app</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>miniconda</strong></td>
+<td>AI Development</td>
+<td>Minimal Python data science platform (Anaconda alternative)</td>
+<td><a
+href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>docker-compose</strong></td>
+<td>AI Infrastructure</td>
+<td>Multi-container AI applications</td>
+<td><a href="https://docs.docker.com/compose/">docker-compose</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>grafana</strong></td>
+<td>AI Monitoring</td>
+<td>Visualization for AI metrics</td>
+<td><a href="https://grafana.com/docs/">grafana</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>opensearch-dashboards</strong></td>
+<td>AI Monitoring</td>
+<td>Data visualization for OpenSearch (Kibana alternative)</td>
+<td><a
+href="https://opensearch.org/docs/latest/dashboards/">opensearch-dashboards</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>prometheus</strong></td>
+<td>AI Monitoring</td>
+<td>Monitoring for AI workloads</td>
+<td><a href="https://prometheus.io/docs/">prometheus</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>ollama</strong></td>
+<td>AI Runtime</td>
+<td>Run LLMs locally</td>
+<td><a href="https://github.com/ollama/ollama">ollama</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>aria2</strong></td>
+<td>AI Tooling</td>
+<td>Fast downloader for large AI models</td>
+<td><a href="https://aria2.github.io/manual/en/html/">aria2</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>cursor</strong></td>
+<td>AI Tooling</td>
+<td>AI-powered code editor</td>
+<td><a href="https://cursor.sh/">cursor</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>dbeaver-community</strong></td>
+<td>AI Tooling</td>
+<td>Universal database tool for AI data</td>
+<td><a href="https://dbeaver.io/docs/">dbeaver-community</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>git-lfs</strong></td>
+<td>AI Tooling</td>
+<td>Large file storage for AI models</td>
+<td><a href="https://git-lfs.github.io/">git-lfs</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>lm-studio</strong></td>
+<td>AI Tooling</td>
+<td>Desktop app to browse/run LLMs</td>
+<td><a href="https://lmstudio.ai/docs">lm-studio</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>postman</strong></td>
+<td>AI Tooling</td>
+<td>API testing for AI endpoints</td>
+<td><a href="https://learning.postman.com/docs/">postman</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>void</strong></td>
+<td>AI Tooling</td>
+<td>Open source AI code editor (Cursor alternative)</td>
+<td><a href="https://voideditor.com/">void</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>python@3.11</strong></td>
+<td>Applications</td>
+<td>brew package</td>
+<td><a href="https://github.com/python@3.11">python@3.11</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>brave-browser</strong></td>
+<td>Browsers</td>
+<td>cask package</td>
+<td><a href="https://github.com/brave-browser">brave-browser</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>microsoft-edge</strong></td>
+<td>Browsers</td>
+<td>cask package</td>
+<td><a href="https://github.com/microsoft-edge">microsoft-edge</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>discord</strong></td>
+<td>Communication</td>
+<td>cask package</td>
+<td><a href="https://github.com/discord">discord</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>microsoft-teams</strong></td>
+<td>Communication</td>
+<td>cask package</td>
+<td><a
+href="https://github.com/microsoft-teams">microsoft-teams</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>signal</strong></td>
+<td>Communication</td>
+<td>cask package</td>
+<td><a href="https://github.com/signal">signal</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>slack</strong></td>
+<td>Communication</td>
+<td>cask package</td>
+<td><a href="https://github.com/slack">slack</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>telegram</strong></td>
+<td>Communication</td>
+<td>cask package</td>
+<td><a href="https://github.com/telegram">telegram</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>whatsapp</strong></td>
+<td>Communication</td>
+<td>cask package</td>
+<td><a href="https://github.com/whatsapp">whatsapp</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>zoom</strong></td>
+<td>Communication</td>
+<td>cask package</td>
+<td><a href="https://github.com/zoom">zoom</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>bun</strong></td>
+<td>Core Dev</td>
+<td>All‑in‑one JS runtime &amp; toolkit</td>
+<td><a href="https://bun.sh/docs">bun</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>docker</strong></td>
+<td>Core Dev</td>
+<td>Container runtime &amp; tooling</td>
+<td><a href="https://docs.docker.com">docker</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>git</strong></td>
+<td>Core Dev</td>
+<td>Distributed version control</td>
+<td><a href="https://git-scm.com/doc">git</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>node</strong></td>
+<td>Core Dev</td>
+<td>JavaScript runtime</td>
+<td><a href="https://nodejs.org/en/docs">node</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>pnpm</strong></td>
+<td>Core Dev</td>
+<td>Fast/space‑efficient package manager</td>
+<td><a href="https://pnpm.io/motivation">pnpm</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>uv</strong></td>
+<td>Core Dev</td>
+<td>Fast Python package installer</td>
+<td><a href="https://docs.astral.sh/uv/">uv</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>volta</strong></td>
+<td>Core Dev</td>
+<td>JavaScript tool manager</td>
+<td><a href="https://docs.volta.sh/">volta</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>clickhouse-cpp</strong></td>
+<td>Databases</td>
+<td>ClickHouse client libraries</td>
+<td><a href="https://clickhouse.com/docs">clickhouse-cpp</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>duckdb</strong></td>
+<td>Databases</td>
+<td>In‑process analytical DB</td>
+<td><a href="https://duckdb.org/docs/">duckdb</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>mongosh</strong></td>
+<td>Databases</td>
+<td>MongoDB shell for admin/dev</td>
+<td><a
+href="https://www.mongodb.com/docs/mongodb-shell/">mongosh</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>mysql</strong></td>
+<td>Databases</td>
+<td>MySQL database server</td>
+<td><a href="https://dev.mysql.com/doc/">mysql</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>postgresql</strong></td>
+<td>Databases</td>
+<td>Relational database</td>
+<td><a href="https://www.postgresql.org/docs/">postgresql</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>redis</strong></td>
+<td>Databases</td>
+<td>In‑memory data store</td>
+<td><a href="https://redis.io/docs/latest/">redis</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>sqlite</strong></td>
+<td>Databases</td>
+<td>Embedded relational database</td>
+<td><a href="https://www.sqlite.org/docs.html">sqlite</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>tableplus</strong></td>
+<td>Databases</td>
+<td>GUI database client</td>
+<td><a href="https://tableplus.com/blog">tableplus</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>age</strong></td>
+<td>Dev UX</td>
+<td>Simple file encryption</td>
+<td><a href="https://github.com/FiloSottile/age">age</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>awscli</strong></td>
+<td>Dev UX</td>
+<td>AWS command-line interface</td>
+<td><a href="https://docs.aws.amazon.com/cli/">awscli</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>azure-cli</strong></td>
+<td>Dev UX</td>
+<td>Azure command-line interface</td>
+<td><a
+href="https://docs.microsoft.com/en-us/cli/azure/">azure-cli</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>colima</strong></td>
+<td>Dev UX</td>
+<td>Container runtime for macOS</td>
+<td><a href="https://github.com/abiosoft/colima">colima</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>direnv</strong></td>
+<td>Dev UX</td>
+<td>Environment variable management</td>
+<td><a href="https://direnv.net/">direnv</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>entr</strong></td>
+<td>Dev UX</td>
+<td>Run arbitrary commands when files change</td>
+<td><a href="https://github.com/eradman/entr">entr</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>gh</strong></td>
+<td>Dev UX</td>
+<td>GitHub from the terminal</td>
+<td><a href="https://cli.github.com/manual/">gh</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>git-delta</strong></td>
+<td>Dev UX</td>
+<td>Syntax-highlighting pager for git</td>
+<td><a href="https://github.com/dandavison/delta">git-delta</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>gitleaks</strong></td>
+<td>Dev UX</td>
+<td>Git secrets scanner</td>
+<td><a href="https://github.com/gitleaks/gitleaks">gitleaks</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>google-cloud-sdk</strong></td>
+<td>Dev UX</td>
+<td>Google Cloud SDK</td>
+<td><a
+href="https://cloud.google.com/sdk/docs">google-cloud-sdk</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>grpcurl</strong></td>
+<td>Dev UX</td>
+<td>gRPC command-line client</td>
+<td><a href="https://github.com/fullstorydev/grpcurl">grpcurl</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>helm</strong></td>
+<td>Dev UX</td>
+<td>Kubernetes package manager</td>
+<td><a href="https://helm.sh/docs/">helm</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>httpie</strong></td>
+<td>Dev UX</td>
+<td>Command-line HTTP client</td>
+<td><a href="https://httpie.io/">httpie</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>jq</strong></td>
+<td>Dev UX</td>
+<td>JSON processor</td>
+<td><a href="https://github.com/jqlang/jq">jq</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>k9s</strong></td>
+<td>Dev UX</td>
+<td>Kubernetes TUI</td>
+<td><a href="https://k9scli.io/">k9s</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>kafka</strong></td>
+<td>Dev UX</td>
+<td>Distributed streaming platform</td>
+<td><a href="https://kafka.apache.org/documentation/">kafka</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>kind</strong></td>
+<td>Dev UX</td>
+<td>Kubernetes in Docker</td>
+<td><a href="https://kind.sigs.k8s.io/">kind</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>kubectl</strong></td>
+<td>Dev UX</td>
+<td>Kubernetes command-line tool</td>
+<td><a
+href="https://kubernetes.io/docs/reference/kubectl/">kubectl</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>minio</strong></td>
+<td>Dev UX</td>
+<td>Object storage server</td>
+<td><a href="https://docs.min.io/">minio</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>pre-commit</strong></td>
+<td>Dev UX</td>
+<td>Git hooks framework</td>
+<td><a href="https://pre-commit.com/">pre-commit</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>rabbitmq</strong></td>
+<td>Dev UX</td>
+<td>Message broker</td>
+<td><a
+href="https://www.rabbitmq.com/documentation.html">rabbitmq</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>shellcheck</strong></td>
+<td>Dev UX</td>
+<td>Shell script static analysis</td>
+<td><a href="https://github.com/koalaman/shellcheck">shellcheck</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>shfmt</strong></td>
+<td>Dev UX</td>
+<td>Shell script formatter</td>
+<td><a href="https://github.com/mvdan/sh">shfmt</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>sops</strong></td>
+<td>Dev UX</td>
+<td>Secrets management</td>
+<td><a href="https://github.com/mozilla/sops">sops</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>tmux</strong></td>
+<td>Dev UX</td>
+<td>Terminal multiplexer</td>
+<td><a href="https://github.com/tmux/tmux">tmux</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>watchman</strong></td>
+<td>Dev UX</td>
+<td>File watching service</td>
+<td><a href="https://facebook.github.io/watchman/">watchman</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>yq</strong></td>
+<td>Dev UX</td>
+<td>YAML processor</td>
+<td><a href="https://github.com/mikefarah/yq">yq</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>insomnia</strong></td>
+<td>Development</td>
+<td>cask package</td>
+<td><a href="https://github.com/insomnia">insomnia</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>chezmoi</strong></td>
+<td>Dotfiles</td>
+<td>Manage dotfiles securely</td>
+<td><a href="https://www.chezmoi.io/user-guide/">chezmoi</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>visual-studio-code</strong></td>
+<td>Frontend</td>
+<td>Code editor</td>
+<td><a
+href="https://code.visualstudio.com/docs">visual-studio-code</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>yarn</strong></td>
+<td>Frontend</td>
+<td>Package manager alternative to npm</td>
+<td><a href="https://yarnpkg.com/getting-started">yarn</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>notion</strong></td>
+<td>Productivity</td>
+<td>cask package</td>
+<td><a href="https://github.com/notion">notion</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>obsidian</strong></td>
+<td>Productivity</td>
+<td>cask package</td>
+<td><a href="https://github.com/obsidian">obsidian</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>raycast</strong></td>
+<td>Productivity</td>
+<td>cask package</td>
+<td><a href="https://github.com/raycast">raycast</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>pipx</strong></td>
+<td>Python</td>
+<td>Install/Run Python apps in isolated envs</td>
+<td><a href="https://pipx.pypa.io/stable/">pipx</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>bitwarden</strong></td>
+<td>Security</td>
+<td>cask package</td>
+<td><a href="https://github.com/bitwarden">bitwarden</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>alt-tab</strong></td>
+<td>System Tools</td>
+<td>cask package</td>
+<td><a href="https://github.com/alt-tab">alt-tab</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>hiddenbar</strong></td>
+<td>System Tools</td>
+<td>cask package</td>
+<td><a href="https://github.com/hiddenbar">hiddenbar</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>keepingyouawake</strong></td>
+<td>System Tools</td>
+<td>cask package</td>
+<td><a
+href="https://github.com/keepingyouawake">keepingyouawake</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>meetingbar</strong></td>
+<td>System Tools</td>
+<td>cask package</td>
+<td><a href="https://github.com/meetingbar">meetingbar</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>monitorcontrol</strong></td>
+<td>System Tools</td>
+<td>cask package</td>
+<td><a href="https://github.com/monitorcontrol">monitorcontrol</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>rectangle</strong></td>
+<td>System Tools</td>
+<td>cask package</td>
+<td><a href="https://github.com/rectangle">rectangle</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>shottr</strong></td>
+<td>System Tools</td>
+<td>cask package</td>
+<td><a href="https://github.com/shottr">shottr</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>stats</strong></td>
+<td>System Tools</td>
+<td>cask package</td>
+<td><a href="https://github.com/stats">stats</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>alacritty</strong></td>
+<td>Terminal</td>
+<td>GPU-accelerated cross-platform terminal emulator</td>
+<td><a href="https://github.com/alacritty/alacritty">alacritty</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>bandwhich</strong></td>
+<td>Terminal</td>
+<td>Bandwidth utilization tool</td>
+<td><a href="https://github.com/imsnif/bandwhich">bandwhich</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>bat</strong></td>
+<td>Terminal</td>
+<td>cat with syntax highlighting</td>
+<td><a href="https://github.com/sharkdp/bat">bat</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>bottom</strong></td>
+<td>Terminal</td>
+<td>System monitor</td>
+<td><a href="https://github.com/ClementTsang/bottom">bottom</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>dust</strong></td>
+<td>Terminal</td>
+<td>More intuitive version of du</td>
+<td><a href="https://github.com/bootandy/dust">dust</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>eza</strong></td>
+<td>Terminal</td>
+<td>Modern ls replacement</td>
+<td><a href="https://github.com/eza-community/eza">eza</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>fd</strong></td>
+<td>Terminal</td>
+<td>Simple, fast find</td>
+<td><a href="https://github.com/sharkdp/fd">fd</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>fzf</strong></td>
+<td>Terminal</td>
+<td>Fuzzy finder</td>
+<td><a href="https://github.com/junegunn/fzf">fzf</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>gping</strong></td>
+<td>Terminal</td>
+<td>Ping with a graph</td>
+<td><a href="https://github.com/orf/gping">gping</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>htop</strong></td>
+<td>Terminal</td>
+<td>Interactive process viewer</td>
+<td><a href="https://github.com/htop-dev/htop">htop</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>hyperfine</strong></td>
+<td>Terminal</td>
+<td>Command-line benchmarking tool</td>
+<td><a href="https://github.com/sharkdp/hyperfine">hyperfine</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>iterm2</strong></td>
+<td>Terminal</td>
+<td>Advanced terminal emulator for macOS with split panes and
+customization</td>
+<td><a href="https://iterm2.com/documentation.html">iterm2</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>jump</strong></td>
+<td>Terminal</td>
+<td>Quick directory navigation</td>
+<td><a href="https://github.com/gsamokovarov/jump">jump</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>kitty</strong></td>
+<td>Terminal</td>
+<td>GPU-accelerated terminal emulator with advanced features</td>
+<td><a href="https://sw.kovidgoyal.net/kitty/">kitty</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>navi</strong></td>
+<td>Terminal</td>
+<td>Interactive cheatsheet tool</td>
+<td><a href="https://github.com/denisidoro/navi">navi</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>neofetch</strong></td>
+<td>Terminal</td>
+<td>System information tool</td>
+<td><a href="https://github.com/dylanaraps/neofetch">neofetch</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>procs</strong></td>
+<td>Terminal</td>
+<td>Modern replacement for ps</td>
+<td><a href="https://github.com/dalance/procs">procs</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>ripgrep</strong></td>
+<td>Terminal</td>
+<td>Fast recursive grep</td>
+<td><a href="https://github.com/BurntSushi/ripgrep">ripgrep</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>starship</strong></td>
+<td>Terminal</td>
+<td>Minimal, fast shell prompt</td>
+<td><a href="https://starship.rs/guide/">starship</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>tldr</strong></td>
+<td>Terminal</td>
+<td>Simplified man pages</td>
+<td><a href="https://github.com/tldr-pages/tldr">tldr</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>tree</strong></td>
+<td>Terminal</td>
+<td>Directory tree viewer</td>
+<td><a href="https://github.com/old-man-programmer/tree">tree</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>warp</strong></td>
+<td>Terminal</td>
+<td>AI-powered terminal with modern UI and intelligent command
+suggestions</td>
+<td><a href="https://docs.warp.dev/">warp</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>wezterm</strong></td>
+<td>Terminal</td>
+<td>GPU-accelerated terminal emulator and multiplexer</td>
+<td><a href="https://wezfurlong.org/wezterm/">wezterm</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>zoxide</strong></td>
+<td>Terminal</td>
+<td>Smarter cd command</td>
+<td><a href="https://github.com/ajeetdsouza/zoxide">zoxide</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>appcleaner</strong></td>
+<td>Utilities</td>
+<td>cask package</td>
+<td><a href="https://github.com/appcleaner">appcleaner</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>handbrake</strong></td>
+<td>Utilities</td>
+<td>cask package</td>
+<td><a href="https://github.com/handbrake">handbrake</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>keka</strong></td>
+<td>Utilities</td>
+<td>cask package</td>
+<td><a href="https://github.com/keka">keka</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+<tr>
+<td><strong>vlc</strong></td>
+<td>Utilities</td>
+<td>cask package</td>
+<td><a href="https://github.com/vlc">vlc</a></td>
+<td>✅ already installed and up to date</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total packages: 113</strong></p>
+<h2 id="vs-code-extensions">🔌 VS Code Extensions</h2>
+<p>The following extensions are installed for VS Code, Cursor, and Void
+IDE:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Description</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EditorConfig.EditorConfig</td>
+<td>Maintain consistent coding styles</td>
+<td>Core</td>
+</tr>
+<tr>
+<td>Prisma.prisma</td>
+<td>Prisma ORM support</td>
+<td>Database</td>
+</tr>
+<tr>
+<td>aaron-bond.better-comments</td>
+<td>Better comment highlighting</td>
+<td>Core</td>
+</tr>
+<tr>
+<td>bradlc.vscode-tailwindcss</td>
+<td>Tailwind CSS IntelliSense</td>
+<td>Frontend</td>
+</tr>
+<tr>
+<td>christian-kohler.path-intellisense</td>
+<td>Path autocomplete</td>
+<td>Core</td>
+</tr>
+<tr>
+<td>dbaeumer.vscode-eslint</td>
+<td>ESLint integration</td>
+<td>Core</td>
+</tr>
+<tr>
+<td>eamodio.gitlens</td>
+<td>Git supercharged</td>
+<td>Git</td>
+</tr>
+<tr>
+<td>eriklynd.json-tools</td>
+<td>JSON manipulation tools</td>
+<td>Core</td>
+</tr>
+<tr>
+<td>esbenp.prettier-vscode</td>
+<td>Code formatter</td>
+<td>Core</td>
+</tr>
+<tr>
+<td>github.copilot-chat</td>
+<td>AI pair programming</td>
+<td>AI</td>
+</tr>
+<tr>
+<td>github.vscode-pull-request-github</td>
+<td>GitHub PR management</td>
+<td>Git</td>
+</tr>
+<tr>
+<td>humao.rest-client</td>
+<td>REST API testing</td>
+<td>Development</td>
+</tr>
+<tr>
+<td>mikestead.dotenv</td>
+<td>.env file support</td>
+<td>Core</td>
+</tr>
+<tr>
+<td>ms-azuretools.vscode-docker</td>
+<td>Docker support</td>
+<td>DevOps</td>
+</tr>
+<tr>
+<td>ms-kubernetes-tools.vscode-kubernetes-tools</td>
+<td>Kubernetes support</td>
+<td>DevOps</td>
+</tr>
+<tr>
+<td>ms-vscode-remote.remote-containers</td>
+<td>Remote development</td>
+<td>DevOps</td>
+</tr>
+<tr>
+<td>ms-vscode.vscode-typescript-next</td>
+<td>TypeScript support</td>
+<td>Core</td>
+</tr>
+<tr>
+<td>ms-vsliveshare.vsliveshare</td>
+<td>Live collaboration</td>
+<td>Core</td>
+</tr>
+<tr>
+<td>mtxr.sqltools</td>
+<td>Database management</td>
+<td>Database</td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration-files-dotfiles">📁 Configuration Files
+(Dotfiles)</h2>
+<p>The setup script creates and configures the following dotfiles:</p>
+<h3 id="shell-configuration">Shell Configuration</h3>
+<ul>
+<li><strong>~/.zshrc</strong> - Zsh shell configuration with:
+<ul>
+<li>Homebrew environment setup</li>
+<li>Starship prompt configuration</li>
+<li>Modern terminal tool aliases (eza, bat, fd, rg)</li>
+<li>FZF configuration with previews</li>
+<li>Zoxide (smarter cd) integration</li>
+<li>Direnv environment management</li>
+<li>Jump directory navigation</li>
+</ul></li>
+</ul>
+<h3 id="git-configuration">Git Configuration</h3>
+<ul>
+<li><strong>~/.gitconfig</strong> - Git configuration with:
+<ul>
+<li>User settings (name, email, editor)</li>
+<li>Core settings (autocrlf, whitespace, precomposeunicode)</li>
+<li>Branch defaults (main)</li>
+<li>Comprehensive aliases (st, co, br, ci, lg, etc.)</li>
+<li>GitHub-specific aliases (pr, prd, prr, prm, etc.)</li>
+<li>Color configuration</li>
+<li>URL rewriting for GitHub</li>
+</ul></li>
+</ul>
+<h3 id="ssh-configuration">SSH Configuration</h3>
+<ul>
+<li><strong>~/.ssh/config</strong> - SSH configuration with:
+<ul>
+<li>Key management settings</li>
+<li>GitHub, GitLab, Bitbucket host configurations</li>
+<li>SSH key generation (ed25519)</li>
+<li>Keychain integration</li>
+</ul></li>
+</ul>
+<h3 id="editor-configurations">Editor Configurations</h3>
+<ul>
+<li><strong>~/.vimrc</strong> - Vim configuration with:
+<ul>
+<li>Plugin management (Vundle)</li>
+<li>Modern settings (numbers, cursorline, search)</li>
+<li>Key mappings for navigation</li>
+<li>FZF integration</li>
+<li>Git integration</li>
+</ul></li>
+<li><strong>~/.config/nvim/init.vim</strong> - Neovim configuration</li>
+<li><strong>~/.pythonrc</strong> - Python startup configuration</li>
+</ul>
+<h3 id="terminal-configurations">Terminal Configurations</h3>
+<ul>
+<li><strong>~/.config/alacritty/alacritty.yml</strong> - Alacritty
+terminal config</li>
+<li><strong>~/.config/wezterm/wezterm.lua</strong> - WezTerm terminal
+config<br />
+</li>
+<li><strong>~/.config/kitty/kitty.conf</strong> - Kitty terminal
+config</li>
+</ul>
+<h3 id="development-templates">Development Templates</h3>
+<ul>
+<li><strong>~/.envrc.template</strong> - Direnv environment
+template</li>
+<li><strong>~/.gitignore.template</strong> - Git ignore template</li>
+</ul>
+<h2 id="environment-variables">🌍 Environment Variables</h2>
+<p>The setup configures comprehensive environment variables for seamless
+development:</p>
+<h3 id="development-paths">Development Paths</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">DEV_HOME</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/Development&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PROJECTS</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$DEV_HOME</span><span class="st">/projects&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">DOTFILES</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$DEV_HOME</span><span class="st">/dotfiles&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">WORKSPACE</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$DEV_HOME</span><span class="st">/workspace&quot;</span></span></code></pre></div>
+<h3 id="language-specific-paths">Language-Specific Paths</h3>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Go</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">GOPATH</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/go&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">GOROOT</span><span class="op">=</span><span class="st">&quot;/usr/local/go&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Python</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PYENV_ROOT</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/.pyenv&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PYTHONSTARTUP</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/.pythonrc&quot;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PYTHONDONTWRITEBYTECODE</span><span class="op">=</span>1</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Node.js</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">NVM_DIR</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/.nvm&quot;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">VOLTA_HOME</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/.volta&quot;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">NODE_ENV</span><span class="op">=</span><span class="st">&quot;development&quot;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Rust</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">CARGO_HOME</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/.cargo&quot;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">RUSTUP_HOME</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/.rustup&quot;</span></span></code></pre></div>
+<h3 id="ai-tools-configuration">AI Tools Configuration</h3>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OLLAMA_HOST</span><span class="op">=</span><span class="st">&quot;127.0.0.1:11434&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">LM_STUDIO_HOST</span><span class="op">=</span><span class="st">&quot;127.0.0.1:1234&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OPEN_WEBUI_HOST</span><span class="op">=</span><span class="st">&quot;127.0.0.1:3000&quot;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OLLAMA_MODELS</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/.ollama/models&quot;</span></span></code></pre></div>
+<h3 id="database-defaults">Database Defaults</h3>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">POSTGRES_HOST</span><span class="op">=</span><span class="st">&quot;localhost&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">POSTGRES_PORT</span><span class="op">=</span><span class="st">&quot;5432&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">POSTGRES_USER</span><span class="op">=</span><span class="st">&quot;postgres&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">MONGODB_URI</span><span class="op">=</span><span class="st">&quot;mongodb://localhost:27017&quot;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">REDIS_URL</span><span class="op">=</span><span class="st">&quot;redis://localhost:6379&quot;</span></span></code></pre></div>
+<h3 id="development-tools">Development Tools</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">FZF_DEFAULT_OPTS</span><span class="op">=</span><span class="st">&quot;--height 40% --layout=reverse --border&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">BAT_THEME</span><span class="op">=</span><span class="st">&quot;DarkNeon&quot;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">EXA_COLORS</span><span class="op">=</span><span class="st">&quot;di=34:ln=35:so=32:pi=33:ex=31&quot;</span></span></code></pre></div>
+<h3 id="cloud-providers">Cloud Providers</h3>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">AWS_PROFILE</span><span class="op">=</span><span class="st">&quot;default&quot;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">AWS_REGION</span><span class="op">=</span><span class="st">&quot;us-east-1&quot;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">GOOGLE_APPLICATION_CREDENTIALS</span><span class="op">=</span><span class="st">&quot;&quot;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">AZURE_SUBSCRIPTION_ID</span><span class="op">=</span><span class="st">&quot;&quot;</span></span></code></pre></div>
+<h2 id="services-ports">🚀 Services &amp; Ports</h2>
+<p>The setup configures the following services and their default
+ports:</p>
+<h3 id="database-services">Database Services</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Service</th>
+<th>Port</th>
+<th>Description</th>
+<th>Start Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PostgreSQL</td>
+<td>5432</td>
+<td>Relational database</td>
+<td><code>brew services start postgresql</code></td>
+</tr>
+<tr>
+<td>MongoDB</td>
+<td>27017</td>
+<td>Document database</td>
+<td><code>brew services start mongodb-community</code></td>
+</tr>
+<tr>
+<td>Redis</td>
+<td>6379</td>
+<td>In-memory data store</td>
+<td><code>brew services start redis</code></td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>3306</td>
+<td>Alternative relational DB</td>
+<td><code>brew services start mysql</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ai-services">AI Services</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Port</th>
+<th>Description</th>
+<th>Start Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ollama</td>
+<td>11434</td>
+<td>Local LLM server</td>
+<td><code>ollama serve</code></td>
+</tr>
+<tr>
+<td>LM Studio</td>
+<td>1234</td>
+<td>GUI model management</td>
+<td>Open LM Studio app</td>
+</tr>
+<tr>
+<td>Open WebUI</td>
+<td>3000</td>
+<td>Web interface for LLMs</td>
+<td><code>open-webui</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="development-services">Development Services</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Service</th>
+<th>Port</th>
+<th>Description</th>
+<th>Start Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MinIO</td>
+<td>9000</td>
+<td>Object storage</td>
+<td><code>minio server ~/minio-data</code></td>
+</tr>
+<tr>
+<td>Grafana</td>
+<td>3001</td>
+<td>Monitoring dashboard</td>
+<td><code>brew services start grafana</code></td>
+</tr>
+<tr>
+<td>Prometheus</td>
+<td>9090</td>
+<td>Metrics collection</td>
+<td><code>brew services start prometheus</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="container-services">Container Services</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Port</th>
+<th>Description</th>
+<th>Start Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Docker</td>
+<td>N/A</td>
+<td>Container runtime</td>
+<td><code>colima start</code></td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>N/A</td>
+<td>Container orchestration</td>
+<td><code>kind create cluster</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ai-tools-models">🤖 AI Tools &amp; Models</h2>
+<p>The setup includes comprehensive AI development tools:</p>
+<h3 id="local-llm-runtime">Local LLM Runtime</h3>
+<ul>
+<li><strong>Ollama</strong> - Run large language models locally
+<ul>
+<li>Default models: Llama2, DeepSeek Coder 33B</li>
+<li>API endpoint: http://localhost:11434</li>
+<li>Model storage: ~/.ollama/models</li>
+</ul></li>
+</ul>
+<h3 id="ai-development-tools">AI Development Tools</h3>
+<ul>
+<li><strong>LM Studio</strong> - GUI for managing and running LLMs
+<ul>
+<li>Model browser and downloader</li>
+<li>Local server management</li>
+<li>API endpoint: http://localhost:1234</li>
+</ul></li>
+<li><strong>Open WebUI</strong> - Web interface for local LLMs
+<ul>
+<li>Chat interface for models</li>
+<li>Model management</li>
+<li>API endpoint: http://localhost:3000</li>
+</ul></li>
+</ul>
+<h3 id="ai-powered-editors">AI-Powered Editors</h3>
+<ul>
+<li><strong>Cursor</strong> - AI-powered code editor
+<ul>
+<li>Built-in AI chat and code completion</li>
+<li>GitHub Copilot integration</li>
+<li>Local model support</li>
+</ul></li>
+<li><strong>Void IDE</strong> - Open source AI code editor
+<ul>
+<li>Cursor alternative</li>
+<li>Local model integration</li>
+<li>Community-driven development</li>
+</ul></li>
+</ul>
+<h3 id="ai-development-extensions">AI Development Extensions</h3>
+<ul>
+<li><strong>GitHub Copilot</strong> - AI pair programming</li>
+<li><strong>GitHub Copilot Chat</strong> - AI coding assistant</li>
+<li><strong>LM Studio integration</strong> - Local model support</li>
+</ul>
+<h2 id="terminal-applications">💻 Terminal Applications</h2>
+<p>The setup installs and configures multiple modern terminal
+applications:</p>
+<h3 id="ai-powered-terminal">AI-Powered Terminal</h3>
+<ul>
+<li><strong>Warp</strong> - Modern terminal with AI features
+<ul>
+<li>Built-in AI command suggestions</li>
+<li>Split panes and workflows</li>
+<li>Modern UI with GPU acceleration</li>
+</ul></li>
+</ul>
+<h3 id="traditional-terminals">Traditional Terminals</h3>
+<ul>
+<li><strong>iTerm2</strong> - Advanced terminal for macOS
+<ul>
+<li>Split panes and tabs</li>
+<li>Customizable themes</li>
+<li>Advanced search and selection</li>
+</ul></li>
+<li><strong>Alacritty</strong> - GPU-accelerated terminal
+<ul>
+<li>Cross-platform compatibility</li>
+<li>High performance</li>
+<li>Customizable configuration</li>
+</ul></li>
+<li><strong>WezTerm</strong> - GPU-accelerated terminal multiplexer
+<ul>
+<li>Built-in multiplexing</li>
+<li>Cross-platform</li>
+<li>Lua configuration</li>
+</ul></li>
+<li><strong>Kitty</strong> - GPU-accelerated terminal
+<ul>
+<li>High performance</li>
+<li>Image support</li>
+<li>Customizable themes</li>
+</ul></li>
+</ul>
+<h3 id="terminal-tools">Terminal Tools</h3>
+<ul>
+<li><strong>Starship</strong> - Minimal, fast shell prompt</li>
+<li><strong>eza</strong> - Modern ls replacement with icons</li>
+<li><strong>bat</strong> - cat with syntax highlighting</li>
+<li><strong>fd</strong> - Simple, fast find alternative</li>
+<li><strong>ripgrep</strong> - Fast recursive grep</li>
+<li><strong>fzf</strong> - Fuzzy finder with previews</li>
+<li><strong>zoxide</strong> - Smarter cd command</li>
+<li><strong>jump</strong> - Directory navigation</li>
+</ul>
+<h2 id="macos-system-preferences">🖥️ macOS System Preferences</h2>
+<p>The setup automatically configures macOS system preferences for an
+optimal development experience:</p>
+<h3 id="dock-configuration">Dock Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Size</strong></td>
+<td>48px (medium)</td>
+<td>Dock icon size</td>
+</tr>
+<tr>
+<td><strong>Auto-hide</strong></td>
+<td>Enabled</td>
+<td>Dock hides automatically</td>
+</tr>
+<tr>
+<td><strong>Recent apps</strong></td>
+<td>Hidden</td>
+<td>Cleaner interface</td>
+</tr>
+<tr>
+<td><strong>Magnification</strong></td>
+<td>Disabled</td>
+<td>No hover magnification</td>
+</tr>
+<tr>
+<td><strong>Position</strong></td>
+<td>Bottom</td>
+<td>Dock location</td>
+</tr>
+</tbody>
+</table>
+<h3 id="finder-configuration">Finder Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path bar</strong></td>
+<td>Visible</td>
+<td>Shows current folder path</td>
+</tr>
+<tr>
+<td><strong>Status bar</strong></td>
+<td>Visible</td>
+<td>Shows file information</td>
+</tr>
+<tr>
+<td><strong>File extensions</strong></td>
+<td>Always visible</td>
+<td>Shows all file extensions</td>
+</tr>
+<tr>
+<td><strong>Hidden files</strong></td>
+<td>Visible</td>
+<td>Shows hidden files for development</td>
+</tr>
+<tr>
+<td><strong>Search scope</strong></td>
+<td>Current folder</td>
+<td>Default search location</td>
+</tr>
+</tbody>
+</table>
+<h3 id="keyboard-configuration">Keyboard Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Key repeat</strong></td>
+<td>Fast (1)</td>
+<td>Key repeat speed</td>
+</tr>
+<tr>
+<td><strong>Initial delay</strong></td>
+<td>Short (15ms)</td>
+<td>Delay before repeat starts</td>
+</tr>
+<tr>
+<td><strong>Press and hold</strong></td>
+<td>Disabled</td>
+<td>Disabled for special characters</td>
+</tr>
+</tbody>
+</table>
+<h3 id="trackpad-configuration">Trackpad Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tap to click</strong></td>
+<td>Enabled</td>
+<td>Tap to click functionality</td>
+</tr>
+<tr>
+<td><strong>Three-finger drag</strong></td>
+<td>Enabled</td>
+<td>Three-finger drag gestures</td>
+</tr>
+<tr>
+<td><strong>Natural scrolling</strong></td>
+<td>Enabled</td>
+<td>Natural scroll direction</td>
+</tr>
+</tbody>
+</table>
+<h3 id="display-configuration">Display Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Night Shift</strong></td>
+<td>Auto</td>
+<td>Automatic blue light reduction</td>
+</tr>
+<tr>
+<td><strong>True Tone</strong></td>
+<td>Auto</td>
+<td>Automatic color temperature</td>
+</tr>
+<tr>
+<td><strong>Auto-brightness</strong></td>
+<td>Enabled</td>
+<td>Automatic brightness adjustment</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accessibility-configuration">Accessibility Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Reduce motion</strong></td>
+<td>Disabled</td>
+<td>Motion effects enabled</td>
+</tr>
+<tr>
+<td><strong>Reduce transparency</strong></td>
+<td>Disabled</td>
+<td>Transparency effects enabled</td>
+</tr>
+<tr>
+<td><strong>Increase contrast</strong></td>
+<td>Disabled</td>
+<td>Standard contrast level</td>
+</tr>
+</tbody>
+</table>
+<h3 id="date-time-configuration">Date &amp; Time Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Auto timezone</strong></td>
+<td>Enabled</td>
+<td>Automatic timezone detection</td>
+</tr>
+<tr>
+<td><strong>Menu bar display</strong></td>
+<td>Date and time visible</td>
+<td>Shows in menu bar</td>
+</tr>
+<tr>
+<td><strong>Time format</strong></td>
+<td>12-hour format</td>
+<td>Standard time format</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sound-configuration">Sound Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Volume in menu bar</strong></td>
+<td>Visible</td>
+<td>Volume control in menu bar</td>
+</tr>
+<tr>
+<td><strong>Sound effects</strong></td>
+<td>Enabled</td>
+<td>System sound effects</td>
+</tr>
+<tr>
+<td><strong>Volume feedback</strong></td>
+<td>Enabled</td>
+<td>Audio feedback for volume changes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="energy-saver-configuration">Energy Saver Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sleep when display off</strong></td>
+<td>Enabled</td>
+<td>Computer sleeps with display</td>
+</tr>
+<tr>
+<td><strong>Hard disk sleep</strong></td>
+<td>Enabled when possible</td>
+<td>Disks sleep when idle</td>
+</tr>
+<tr>
+<td><strong>Wake for network</strong></td>
+<td>Enabled</td>
+<td>Wake for network access</td>
+</tr>
+</tbody>
+</table>
+<h3 id="security-configuration">Security Configuration</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Password after sleep</strong></td>
+<td>Immediately required</td>
+<td>Security prompt timing</td>
+</tr>
+<tr>
+<td><strong>App sources</strong></td>
+<td>App Store and identified developers</td>
+<td>Allowed app sources</td>
+</tr>
+<tr>
+<td><strong>FileVault</strong></td>
+<td>User prompt for manual setup</td>
+<td>Disk encryption setup</td>
+</tr>
+</tbody>
+</table>
+<h3 id="configuration-management">Configuration Management</h3>
+<p>All macOS preferences are configurable via
+<code>config.yaml</code>:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">macos</span><span class="kw">:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">dock</span><span class="kw">:</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">tilesize</span><span class="kw">:</span><span class="at"> </span><span class="dv">48</span><span class="co">              # Dock size (16-128)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">autohide</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">            # Auto-hide dock</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">show_recents</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">       # Show recent apps</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">magnification</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">      # Dock magnification</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">position</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;bottom&quot;</span><span class="co">        # bottom, left, right</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">finder</span><span class="kw">:</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">show_pathbar</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">        # Show path bar</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">show_statusbar</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">      # Show status bar</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">show_all_extensions</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co"> # Show file extensions</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">show_hidden_files</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">   # Show hidden files</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">default_search_scope</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;SCcf&quot;</span><span class="co">  # Search scope</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">keyboard</span><span class="kw">:</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">key_repeat</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span><span class="co">             # Key repeat rate (0-2)</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">initial_key_repeat</span><span class="kw">:</span><span class="at"> </span><span class="dv">15</span><span class="co">    # Initial delay (10-30)</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">press_and_hold_disabled</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Disable press and hold</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">trackpad</span><span class="kw">:</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">tap_to_click</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">        # Tap to click</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">three_finger_drag</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">   # Three-finger drag</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">natural_scrolling</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">   # Natural scrolling</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">display</span><span class="kw">:</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">night_shift</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;auto&quot;</span><span class="co">       # auto, on, off</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">true_tone</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;auto&quot;</span><span class="co">         # auto, on, off</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">auto_brightness</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">     # Auto-brightness</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">accessibility</span><span class="kw">:</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">reduce_motion</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">      # Reduce motion effects</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">reduce_transparency</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co"> # Reduce transparency</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">increase_contrast</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # Increase contrast</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">date_time</span><span class="kw">:</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">set_timezone_automatically</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Auto timezone</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">show_in_menubar</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">     # Show in menu bar</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">use_24_hour_format</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co"> # 24-hour format</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sound</span><span class="kw">:</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">show_volume_in_menubar</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Volume in menu bar</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">play_sound_effects</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Sound effects</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">play_volume_feedback</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Volume feedback</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">energy_saver</span><span class="kw">:</span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">prevent_sleep_when_display_off</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # Prevent sleep</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">put_hard_disks_to_sleep</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Disk sleep</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">wake_for_network_access</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Network wake</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">security</span><span class="kw">:</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">require_password_immediately</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  # Password after sleep</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">allow_apps_from</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;AppStoreAndIdentifiedDevelopers&quot;</span><span class="co">  # App sources</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">enable_filevault</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;ask_user&quot;</span><span class="co">  # FileVault (true, false, ask_user)</span></span></code></pre></div>
+<h3 id="manual-configuration">Manual Configuration</h3>
+<p>To reconfigure macOS settings:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reconfigure all macOS settings</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./scripts/lib/macos.sh</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or through the main setup</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ex">./setup-env.sh</span></span></code></pre></div>
+<script>
+// Table sorting functionality - only runs in browser environments
+(function() {
+    // Check if we're in a browser environment
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+        return; // Skip in non-browser environments (GitHub, etc.)
+    }
+    
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSortableTables);
+    } else {
+        initSortableTables();
+    }
+    
+    function initSortableTables() {
+        // Find all tables in the document
+        const tables = document.querySelectorAll('table');
+        
+        tables.forEach(table => {
+            // Skip if already initialized
+            if (table.dataset.sortable === 'true') return;
+            
+            // Add sortable class and data attribute
+            table.classList.add('sortable-table');
+            table.dataset.sortable = 'true';
+            
+            // Add click handlers to all header cells
+            const headers = table.querySelectorAll('thead th, tr:first-child th');
+            headers.forEach((header, index) => {
+                // Skip if already has click handler
+                if (header.dataset.sortable === 'true') return;
+                
+                header.style.cursor = 'pointer';
+                header.style.userSelect = 'none';
+                header.dataset.sortable = 'true';
+                header.dataset.column = index;
+                
+                // Add sort indicator
+                const indicator = document.createElement('span');
+                indicator.innerHTML = ' ↕️';
+                indicator.style.fontSize = '0.8em';
+                indicator.style.opacity = '0.5';
+                header.appendChild(indicator);
+                
+                header.addEventListener('click', () => sortTable(table, index));
+            });
+        });
+    }
+    
+    function sortTable(table, columnIndex) {
+        const tbody = table.querySelector('tbody') || table;
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+        
+        // Skip header row if it exists
+        const dataRows = rows.filter(row => {
+            const firstCell = row.querySelector('td, th');
+            return firstCell && firstCell.tagName === 'TD';
+        });
+        
+        if (dataRows.length === 0) return;
+        
+        // Determine current sort direction
+        const currentSort = table.dataset.sortColumn;
+        const currentDirection = table.dataset.sortDirection;
+        let newDirection = 'asc';
+        
+        if (currentSort == columnIndex) {
+            newDirection = currentDirection === 'asc' ? 'desc' : 'asc';
+        }
+        
+        // Update sort indicators
+        updateSortIndicators(table, columnIndex, newDirection);
+        
+        // Sort the rows
+        dataRows.sort((a, b) => {
+            const aText = getCellText(a, columnIndex);
+            const bText = getCellText(b, columnIndex);
+            
+            // Try to parse as numbers
+            const aNum = parseFloat(aText);
+            const bNum = parseFloat(bText);
+            
+            let comparison = 0;
+            if (!isNaN(aNum) && !isNaN(bNum)) {
+                comparison = aNum - bNum;
+            } else {
+                comparison = aText.localeCompare(bText, undefined, { numeric: true });
+            }
+            
+            return newDirection === 'asc' ? comparison : -comparison;
+        });
+        
+        // Reorder the rows in the DOM
+        dataRows.forEach(row => tbody.appendChild(row));
+        
+        // Store current sort state
+        table.dataset.sortColumn = columnIndex;
+        table.dataset.sortDirection = newDirection;
+    }
+    
+    function getCellText(row, columnIndex) {
+        const cells = row.querySelectorAll('td, th');
+        const cell = cells[columnIndex];
+        if (!cell) return '';
+        
+        // Get text content, removing any HTML tags and extra whitespace
+        return cell.textContent.trim();
+    }
+    
+    function updateSortIndicators(table, columnIndex, direction) {
+        const headers = table.querySelectorAll('th[data-sortable="true"]');
+        headers.forEach((header, index) => {
+            const indicator = header.querySelector('span');
+            if (index === columnIndex) {
+                indicator.innerHTML = direction === 'asc' ? ' ↑' : ' ↓';
+                indicator.style.opacity = '1';
+            } else {
+                indicator.innerHTML = ' ↕️';
+                indicator.style.opacity = '0.5';
+            }
+        });
+    }
+})();
+</script>
+<style>
+/* Sortable table styles - only applied in browser environments */
+.sortable-table th[data-sortable="true"]:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.2s ease;
+}
+
+.sortable-table th[data-sortable="true"] {
+    position: relative;
+    padding-right: 20px;
+}
+
+.sortable-table th[data-sortable="true"] span {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+</style>
+<h2 id="next-steps">Next Steps</h2>
+<ol type="1">
+<li><strong>Restart your terminal</strong> or run
+<code>source ~/.zshrc</code></li>
+<li><strong>Start services</strong> (if needed):
+<code>brew services start postgresql</code></li>
+<li><strong>Configure AI tools</strong>: Open LM Studio and download
+models</li>
+<li><strong>Check status</strong>:
+<code>make services-status</code></li>
+</ol>
+<h2 id="customization">Customization</h2>
+<p>Edit <code>config.yaml</code> to customize what gets installed:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">categories</span><span class="kw">:</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">business</span><span class="kw">:</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">enabled</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">  # Skip productivity apps</span></span></code></pre></div>
+<p>Then run: <code>./scripts/setup-v4.sh --config config.yaml</code></p>
+<hr />
+<p><em>This README is auto-generated. To update it, run:
+<code>./scripts/generate-csv-readme.sh</code></em></p>
+</body>
+</html>
