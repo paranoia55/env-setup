@@ -1,0 +1,75 @@
+# Design Configuration
+# Perfect for: UI/UX designers, graphic designers, content creators
+# Focuses on design tools, creative apps, and productivity software
+
+metadata:
+  name: "Design Setup"
+  description: "Design and creative tools environment"
+  version: "1.0.0"
+
+# Use the main config.yaml as base
+include: "../config.yaml"
+
+# Override with design focused packages
+packages:
+  core:
+    brew:
+      - "git"
+      - "node"
+      - "pnpm"
+      - "gh"
+      - "starship"
+      - "bat"
+      - "eza"
+      - "fzf"
+      - "ripgrep"
+      - "fd"
+      - "zoxide"
+      - "jump"
+      - "chezmoi"
+      - "direnv"
+      - "pre-commit"
+      - "shellcheck"
+      - "shfmt"
+      - "git-delta"
+      - "jq"
+      - "yq"
+      - "httpie"
+      - "watchman"
+      - "entr"
+      - "tmux"
+      - "volta"
+      - "uv"
+      - "tldr"
+      - "tree"
+      - "htop"
+      - "neofetch"
+  frontend:
+    brew: []
+    cask:
+      - "visual-studio-code"
+      - "warp"
+      - "iterm2"
+      - "alacritty"
+      - "wezterm"
+      - "kitty"
+  backend:
+    brew: []
+    cask: []
+  business:
+    brew: []
+    cask:
+      - "cursor"
+      - "rectangle"
+      - "raycast"
+      - "insomnia"
+      - "slack"
+      - "discord"
+      - "notion"
+      - "obsidian"
+      - "vlc"
+      - "handbrake"
+      - "keka"
+      - "appcleaner"
+      - "hiddenbar"
+      - "monitorcontrol"

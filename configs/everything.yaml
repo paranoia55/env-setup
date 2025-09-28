@@ -1,0 +1,113 @@
+# Everything Configuration - Complete Development Environment
+# This installs all available packages across all categories
+# Perfect for: Complete development setups, power users, new Mac setups
+
+metadata:
+  name: "Everything Setup"
+  description: "Complete development environment with all packages"
+  version: "1.0.0"
+
+# Use the main config.yaml as base and include all packages
+include: "../config.yaml"
+
+# Override to ensure everything is included
+packages:
+  core:
+    brew:
+      - "git"
+      - "node"
+      - "pnpm"
+      - "bun"
+      - "docker"
+      - "postgresql"
+      - "gh"
+      - "starship"
+      - "bat"
+      - "eza"
+      - "fzf"
+      - "ripgrep"
+      - "fd"
+      - "zoxide"
+      - "jump"
+      - "chezmoi"
+      - "direnv"
+      - "pre-commit"
+      - "shellcheck"
+      - "shfmt"
+      - "git-delta"
+      - "gitleaks"
+      - "sops"
+      - "age"
+      - "jq"
+      - "yq"
+      - "httpie"
+      - "grpcurl"
+      - "watchman"
+      - "entr"
+      - "tmux"
+      - "kubectl"
+      - "helm"
+      - "k9s"
+      - "kind"
+      - "colima"
+      - "mysql"
+      - "kafka"
+      - "rabbitmq"
+      - "minio"
+      - "awscli"
+      - "azure-cli"
+      - "google-cloud-sdk"
+      - "volta"
+      - "uv"
+      - "tldr"
+      - "tree"
+      - "htop"
+      - "neofetch"
+      - "procs"
+      - "dust"
+      - "hyperfine"
+      - "gping"
+      - "bandwhich"
+      - "bottom"
+      - "navi"
+  frontend:
+    brew:
+      - "yarn"
+    cask:
+      - "visual-studio-code"
+      - "warp"
+      - "iterm2"
+      - "alacritty"
+      - "wezterm"
+      - "kitty"
+  backend:
+    brew:
+      - "mongosh"
+      - "redis"
+      - "sqlite"
+      - "clickhouse-cpp"
+      - "duckdb"
+    cask:
+      - "tableplus"
+  business:
+    brew: []
+    cask:
+      - "lm-studio"
+      - "void"
+      - "cursor"
+      - "rectangle"
+      - "raycast"
+      - "insomnia"
+      - "whatsapp"
+      - "signal"
+      - "telegram"
+      - "slack"
+      - "discord"
+      - "notion"
+      - "obsidian"
+      - "vlc"
+      - "handbrake"
+      - "keka"
+      - "appcleaner"
+      - "hiddenbar"
+      - "monitorcontrol"

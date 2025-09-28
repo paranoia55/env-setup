@@ -1,0 +1,43 @@
+# Minimal Configuration - Essential Tools Only
+# Perfect for: Quick setup, minimal systems, basic development
+# Installs only the most essential development tools
+
+metadata:
+  name: "Minimal Setup"
+  description: "Essential development tools only"
+  version: "1.0.0"
+
+# Use the main config.yaml as base
+include: "../config.yaml"
+
+# Override with minimal package selection
+packages:
+  core:
+    brew:
+      - "git"
+      - "node"
+      - "pnpm"
+      - "docker"
+      - "gh"
+      - "starship"
+      - "bat"
+      - "fzf"
+      - "ripgrep"
+      - "jq"
+      - "yq"
+      - "tmux"
+      - "tldr"
+      - "htop"
+  frontend:
+    brew: []
+    cask:
+      - "visual-studio-code"
+      - "warp"
+  backend:
+    brew: []
+    cask: []
+  business:
+    brew: []
+    cask:
+      - "rectangle"
+      - "raycast"

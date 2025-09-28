@@ -20,21 +20,75 @@ A comprehensive, production-ready development environment setup for macOS with A
 
 ## 🚀 Quick Start
 
+### Option 1: Use a Preset Configuration (Recommended)
 ```bash
-# Clone and run
-git clone https://github.com/your-username/env-setup.git
+# Clone the repository
+git clone https://github.com/davidsilvestrehenao-hub/env-setup.git
 cd env-setup
 
-# Simple setup script (recommended)
+# Choose a configuration that fits your needs
+./setup-env.sh install --config configs/webdev.yaml      # Web development
+./setup-env.sh install --config configs/ai.yaml          # AI/ML development
+./setup-env.sh install --config configs/minimal.yaml     # Essential tools only
+./setup-env.sh install --config configs/everything.yaml  # Complete setup
+
+# Or preview first
+./setup-env.sh preview --config configs/webdev.yaml
+```
+
+### Option 2: Use Default Configuration
+```bash
+# Clone and run with default config
+git clone https://github.com/davidsilvestrehenao-hub/env-setup.git
+cd env-setup
 ./setup-env.sh install
 
 # Or preview first
 ./setup-env.sh preview
-
-# Or use other methods
-make install
-./scripts/setup.sh
 ```
+
+### Option 3: Create Custom Configuration
+```bash
+# Copy a preset as starting point
+cp configs/webdev.yaml configs/my-custom.yaml
+
+# Edit to your needs
+nano configs/my-custom.yaml
+
+# Use your custom config
+./setup-env.sh install --config configs/my-custom.yaml
+```
+
+## ⚙️ Configuration System
+
+This tool is highly configurable with 10+ preset configurations for different user types:
+
+| Configuration | Description | Packages | Perfect For |
+|---------------|-------------|----------|-------------|
+| **everything** | Complete setup with all packages | 113+ | Power users, new Mac setups |
+| **minimal** | Essential tools only | ~20 | Quick setup, basic development |
+| **webdev** | Web development focused | ~50 | Frontend/backend developers |
+| **ai** | AI/ML development | ~60 | AI researchers, data scientists |
+| **mobile** | Mobile development | ~50 | iOS/Android developers |
+| **devops** | DevOps & infrastructure | ~80 | DevOps engineers, SREs |
+| **design** | Design & creative tools | ~30 | UI/UX designers, creators |
+| **gaming** | Gaming & entertainment | ~30 | Gamers, streamers |
+| **student** | Student & learning | ~50 | Students, bootcamp participants |
+| **senior** | Senior developer tools | ~90 | Senior devs, tech leads |
+
+### 🎯 Choose Your Configuration
+- **New to development?** → Start with `minimal` or `student`
+- **Web developer?** → Use `webdev` or `everything`
+- **AI/ML work?** → Choose `ai` or `senior`
+- **DevOps engineer?** → Go with `devops` or `everything`
+- **Want everything?** → Use `everything` (default)
+
+### 📁 Configuration Files
+All configurations are in the `configs/` directory. Each file:
+- Extends the main `config.yaml` for base settings
+- Overrides specific package categories
+- Can be customized further for your needs
+- Serves as an example for creating your own configs
 
 ## 📦 What's Included
 

@@ -35,7 +35,7 @@ show_help() {
     echo -e "${BLUE}Environment Setup v1.0${NC}"
     echo ""
     echo "USAGE:"
-    echo "  ./setup-env.sh [OPTION]"
+    echo "  ./setup-env.sh [OPTION] [--config CONFIG_FILE]"
     echo ""
     echo "OPTIONS:"
     echo "  install     Full installation (recommended for first time)"
@@ -48,11 +48,27 @@ show_help() {
     echo "  cleanup     Remove all installed components"
     echo "  help        Show this help message"
     echo ""
+    echo "CONFIGURATION:"
+    echo "  --config CONFIG_FILE    Use specific configuration file"
+    echo ""
+    echo "AVAILABLE CONFIGS:"
+    echo "  configs/everything.yaml  # Complete setup (113+ packages)"
+    echo "  configs/minimal.yaml     # Essential tools only (~20 packages)"
+    echo "  configs/webdev.yaml      # Web development (~50 packages)"
+    echo "  configs/ai.yaml          # AI/ML development (~60 packages)"
+    echo "  configs/mobile.yaml      # Mobile development (~50 packages)"
+    echo "  configs/devops.yaml      # DevOps & infrastructure (~80 packages)"
+    echo "  configs/design.yaml      # Design & creative (~30 packages)"
+    echo "  configs/gaming.yaml      # Gaming & entertainment (~30 packages)"
+    echo "  configs/student.yaml     # Student & learning (~50 packages)"
+    echo "  configs/senior.yaml      # Senior developer (~90 packages)"
+    echo ""
     echo "EXAMPLES:"
-    echo "  ./setup-env.sh install     # Full installation"
-    echo "  ./setup-env.sh preview     # See what would be installed"
-    echo "  ./setup-env.sh core        # Install core tools only"
-    echo "  ./setup-env.sh cleanup     # Remove everything"
+    echo "  ./setup-env.sh install                           # Full installation"
+    echo "  ./setup-env.sh install --config configs/webdev.yaml  # Web dev setup"
+    echo "  ./setup-env.sh preview --config configs/minimal.yaml # Preview minimal"
+    echo "  ./setup-env.sh core                              # Install core tools only"
+    echo "  ./setup-env.sh cleanup                           # Remove everything"
     echo ""
     echo "For more options, see:"
     echo "  ./scripts/setup.sh --help"
@@ -64,48 +80,90 @@ main() {
     show_banner
     
     local command="${1:-help}"
+    local config_file=""
+    
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --config)
+                config_file="$2"
+                shift 2
+                ;;
+            *)
+                command="$1"
+                shift
+                ;;
+        esac
+    done
+    
+    # Build script arguments
+    local script_args=""
+    if [[ -n "$config_file" ]]; then
+        script_args="--config $config_file"
+    fi
     
     case "$command" in
         "install")
             echo -e "${GREEN}🚀 Starting full installation...${NC}"
+            if [[ -n "$config_file" ]]; then
+                echo -e "${BLUE}Using configuration: $config_file${NC}"
+            fi
             echo ""
-            ./scripts/setup.sh
+            ./scripts/setup.sh $script_args
             ;;
             
         "preview")
             echo -e "${YELLOW}🔍 Previewing installation...${NC}"
+            if [[ -n "$config_file" ]]; then
+                echo -e "${BLUE}Using configuration: $config_file${NC}"
+            fi
             echo ""
-            ./scripts/setup.sh --dry-run
+            ./scripts/setup.sh --dry-run $script_args
             ;;
             
         "core")
             echo -e "${BLUE}🔧 Installing core development tools...${NC}"
+            if [[ -n "$config_file" ]]; then
+                echo -e "${BLUE}Using configuration: $config_file${NC}"
+            fi
             echo ""
-            ./scripts/setup.sh --only core
+            ./scripts/setup.sh --only core $script_args
             ;;
             
         "frontend")
             echo -e "${BLUE}🎨 Installing frontend tools...${NC}"
+            if [[ -n "$config_file" ]]; then
+                echo -e "${BLUE}Using configuration: $config_file${NC}"
+            fi
             echo ""
-            ./scripts/setup.sh --only frontend
+            ./scripts/setup.sh --only frontend $script_args
             ;;
             
         "backend")
             echo -e "${BLUE}🗄️ Installing backend tools...${NC}"
+            if [[ -n "$config_file" ]]; then
+                echo -e "${BLUE}Using configuration: $config_file${NC}"
+            fi
             echo ""
-            ./scripts/setup.sh --only backend
+            ./scripts/setup.sh --only backend $script_args
             ;;
             
         "business")
             echo -e "${BLUE}💼 Installing business/productivity tools...${NC}"
+            if [[ -n "$config_file" ]]; then
+                echo -e "${BLUE}Using configuration: $config_file${NC}"
+            fi
             echo ""
-            ./scripts/setup.sh --only business
+            ./scripts/setup.sh --only business $script_args
             ;;
             
         "ai")
             echo -e "${BLUE}🤖 Installing AI tools...${NC}"
+            if [[ -n "$config_file" ]]; then
+                echo -e "${BLUE}Using configuration: $config_file${NC}"
+            fi
             echo ""
-            ./scripts/setup.sh --only ai
+            ./scripts/setup.sh --only ai $script_args
             ;;
             
         "cleanup")

@@ -1,0 +1,101 @@
+# DevOps Configuration
+# Perfect for: DevOps engineers, SREs, infrastructure engineers
+# Focuses on containerization, orchestration, monitoring, and cloud tools
+
+metadata:
+  name: "DevOps Setup"
+  description: "DevOps and infrastructure management environment"
+  version: "1.0.0"
+
+# Use the main config.yaml as base
+include: "../config.yaml"
+
+# Override with DevOps focused packages
+packages:
+  core:
+    brew:
+      - "git"
+      - "node"
+      - "pnpm"
+      - "docker"
+      - "postgresql"
+      - "redis"
+      - "gh"
+      - "starship"
+      - "bat"
+      - "eza"
+      - "fzf"
+      - "ripgrep"
+      - "fd"
+      - "zoxide"
+      - "jump"
+      - "chezmoi"
+      - "direnv"
+      - "pre-commit"
+      - "shellcheck"
+      - "shfmt"
+      - "git-delta"
+      - "gitleaks"
+      - "sops"
+      - "age"
+      - "jq"
+      - "yq"
+      - "httpie"
+      - "grpcurl"
+      - "watchman"
+      - "entr"
+      - "tmux"
+      - "kubectl"
+      - "helm"
+      - "k9s"
+      - "kind"
+      - "colima"
+      - "mysql"
+      - "kafka"
+      - "rabbitmq"
+      - "minio"
+      - "awscli"
+      - "azure-cli"
+      - "google-cloud-sdk"
+      - "volta"
+      - "uv"
+      - "tldr"
+      - "tree"
+      - "htop"
+      - "neofetch"
+      - "procs"
+      - "dust"
+      - "hyperfine"
+      - "gping"
+      - "bandwhich"
+      - "bottom"
+      - "navi"
+  frontend:
+    brew: []
+    cask:
+      - "visual-studio-code"
+      - "warp"
+      - "iterm2"
+      - "alacritty"
+      - "wezterm"
+      - "kitty"
+  backend:
+    brew:
+      - "mongosh"
+      - "redis"
+      - "sqlite"
+      - "clickhouse-cpp"
+      - "duckdb"
+    cask:
+      - "tableplus"
+  business:
+    brew: []
+    cask:
+      - "cursor"
+      - "rectangle"
+      - "raycast"
+      - "insomnia"
+      - "slack"
+      - "discord"
+      - "notion"
+      - "obsidian"

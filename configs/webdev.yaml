@@ -1,0 +1,79 @@
+# Web Development Configuration
+# Perfect for: Frontend/backend web developers, full-stack developers
+# Focuses on web development tools, modern terminals, and productivity apps
+
+metadata:
+  name: "Web Development Setup"
+  description: "Complete web development environment"
+  version: "1.0.0"
+
+# Use the main config.yaml as base
+include: "../config.yaml"
+
+# Override with web development focused packages
+packages:
+  core:
+    brew:
+      - "git"
+      - "node"
+      - "pnpm"
+      - "bun"
+      - "yarn"
+      - "docker"
+      - "postgresql"
+      - "redis"
+      - "gh"
+      - "starship"
+      - "bat"
+      - "eza"
+      - "fzf"
+      - "ripgrep"
+      - "fd"
+      - "zoxide"
+      - "jump"
+      - "chezmoi"
+      - "direnv"
+      - "pre-commit"
+      - "shellcheck"
+      - "shfmt"
+      - "git-delta"
+      - "jq"
+      - "yq"
+      - "httpie"
+      - "watchman"
+      - "entr"
+      - "tmux"
+      - "volta"
+      - "uv"
+      - "tldr"
+      - "tree"
+      - "htop"
+      - "neofetch"
+  frontend:
+    brew:
+      - "yarn"
+    cask:
+      - "visual-studio-code"
+      - "warp"
+      - "iterm2"
+      - "alacritty"
+      - "wezterm"
+      - "kitty"
+  backend:
+    brew:
+      - "mongosh"
+      - "redis"
+      - "sqlite"
+    cask:
+      - "tableplus"
+  business:
+    brew: []
+    cask:
+      - "cursor"
+      - "rectangle"
+      - "raycast"
+      - "insomnia"
+      - "slack"
+      - "discord"
+      - "notion"
+      - "obsidian"

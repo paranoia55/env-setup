@@ -1,0 +1,106 @@
+# Senior Developer Configuration
+# Perfect for: Senior developers, tech leads, architects
+# Focuses on advanced tools, monitoring, security, and productivity
+
+metadata:
+  name: "Senior Developer Setup"
+  description: "Advanced development environment for senior developers"
+  version: "1.0.0"
+
+# Use the main config.yaml as base
+include: "../config.yaml"
+
+# Override with senior developer focused packages
+packages:
+  core:
+    brew:
+      - "git"
+      - "node"
+      - "pnpm"
+      - "bun"
+      - "yarn"
+      - "docker"
+      - "postgresql"
+      - "redis"
+      - "gh"
+      - "starship"
+      - "bat"
+      - "eza"
+      - "fzf"
+      - "ripgrep"
+      - "fd"
+      - "zoxide"
+      - "jump"
+      - "chezmoi"
+      - "direnv"
+      - "pre-commit"
+      - "shellcheck"
+      - "shfmt"
+      - "git-delta"
+      - "gitleaks"
+      - "sops"
+      - "age"
+      - "jq"
+      - "yq"
+      - "httpie"
+      - "grpcurl"
+      - "watchman"
+      - "entr"
+      - "tmux"
+      - "kubectl"
+      - "helm"
+      - "k9s"
+      - "kind"
+      - "colima"
+      - "mysql"
+      - "kafka"
+      - "rabbitmq"
+      - "minio"
+      - "awscli"
+      - "azure-cli"
+      - "google-cloud-sdk"
+      - "volta"
+      - "uv"
+      - "tldr"
+      - "tree"
+      - "htop"
+      - "neofetch"
+      - "procs"
+      - "dust"
+      - "hyperfine"
+      - "gping"
+      - "bandwhich"
+      - "bottom"
+      - "navi"
+  frontend:
+    brew:
+      - "yarn"
+    cask:
+      - "visual-studio-code"
+      - "warp"
+      - "iterm2"
+      - "alacritty"
+      - "wezterm"
+      - "kitty"
+  backend:
+    brew:
+      - "mongosh"
+      - "redis"
+      - "sqlite"
+      - "clickhouse-cpp"
+      - "duckdb"
+    cask:
+      - "tableplus"
+  business:
+    brew: []
+    cask:
+      - "lm-studio"
+      - "void"
+      - "cursor"
+      - "rectangle"
+      - "raycast"
+      - "insomnia"
+      - "slack"
+      - "discord"
+      - "notion"
+      - "obsidian"

@@ -1,0 +1,80 @@
+# AI/ML Development Configuration
+# Perfect for: AI researchers, ML engineers, data scientists
+# Focuses on AI tools, local LLMs, and data science packages
+
+metadata:
+  name: "AI/ML Development Setup"
+  description: "AI and machine learning development environment"
+  version: "1.0.0"
+
+# Use the main config.yaml as base
+include: "../config.yaml"
+
+# Override with AI/ML focused packages
+packages:
+  core:
+    brew:
+      - "git"
+      - "node"
+      - "pnpm"
+      - "python@3.11"
+      - "python@3.12"
+      - "docker"
+      - "postgresql"
+      - "redis"
+      - "gh"
+      - "starship"
+      - "bat"
+      - "eza"
+      - "fzf"
+      - "ripgrep"
+      - "fd"
+      - "zoxide"
+      - "jump"
+      - "chezmoi"
+      - "direnv"
+      - "pre-commit"
+      - "shellcheck"
+      - "shfmt"
+      - "git-delta"
+      - "jq"
+      - "yq"
+      - "httpie"
+      - "watchman"
+      - "entr"
+      - "tmux"
+      - "volta"
+      - "uv"
+      - "tldr"
+      - "tree"
+      - "htop"
+      - "neofetch"
+  frontend:
+    brew: []
+    cask:
+      - "visual-studio-code"
+      - "warp"
+      - "iterm2"
+      - "alacritty"
+      - "wezterm"
+      - "kitty"
+  backend:
+    brew:
+      - "mongosh"
+      - "redis"
+      - "sqlite"
+      - "clickhouse-cpp"
+      - "duckdb"
+    cask:
+      - "tableplus"
+  business:
+    brew: []
+    cask:
+      - "lm-studio"
+      - "void"
+      - "cursor"
+      - "rectangle"
+      - "raycast"
+      - "insomnia"
+      - "notion"
+      - "obsidian"
