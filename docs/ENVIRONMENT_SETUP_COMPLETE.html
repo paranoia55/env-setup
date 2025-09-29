@@ -1134,6 +1134,1189 @@ config</li>
 template</li>
 <li><strong>~/.gitignore.template</strong> - Git ignore template</li>
 </ul>
+<h2 id="shell-aliases-functions">⚡ Shell Aliases &amp; Functions</h2>
+<p>The setup provides comprehensive aliases and functions organized by
+category for efficient command-line usage:</p>
+<h3 id="file-operations">📁 File Operations</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+<th>More Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ll</code></td>
+<td><code>eza -la --git --icons</code></td>
+<td>List files with details, git status, and icons</td>
+<td><a href="https://github.com/eza-community/eza">eza</a></td>
+</tr>
+<tr>
+<td><code>la</code></td>
+<td><code>eza -A --git --icons</code></td>
+<td>List all files including hidden</td>
+<td><a href="https://github.com/eza-community/eza">eza</a></td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td><code>eza -CF --git --icons</code></td>
+<td>List files in columns with git status</td>
+<td><a href="https://github.com/eza-community/eza">eza</a></td>
+</tr>
+<tr>
+<td><code>lt</code></td>
+<td><code>eza --tree --level=2 --git --icons</code></td>
+<td>Tree view (2 levels)</td>
+<td><a href="https://github.com/eza-community/eza">eza</a></td>
+</tr>
+<tr>
+<td><code>lta</code></td>
+<td><code>eza --tree --level=3 --git --icons</code></td>
+<td>Tree view (3 levels)</td>
+<td><a href="https://github.com/eza-community/eza">eza</a></td>
+</tr>
+<tr>
+<td><code>cat</code></td>
+<td><code>bat --paging=never</code></td>
+<td>Enhanced cat with syntax highlighting</td>
+<td><a href="https://github.com/sharkdp/bat">bat</a></td>
+</tr>
+<tr>
+<td><code>grep</code></td>
+<td><code>rg</code></td>
+<td>Fast grep with regex support</td>
+<td><a href="https://github.com/BurntSushi/ripgrep">ripgrep</a></td>
+</tr>
+<tr>
+<td><code>find</code></td>
+<td><code>fd</code></td>
+<td>Simple and fast find alternative</td>
+<td><a href="https://github.com/sharkdp/fd">fd</a></td>
+</tr>
+<tr>
+<td><code>cd</code></td>
+<td><code>z</code></td>
+<td>Smart directory jumping</td>
+<td><a href="https://github.com/ajeetdsouza/zoxide">zoxide</a></td>
+</tr>
+<tr>
+<td><code>..</code></td>
+<td><code>cd ..</code></td>
+<td>Go up one directory</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>...</code></td>
+<td><code>cd ../..</code></td>
+<td>Go up two directories</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>....</code></td>
+<td><code>cd ../../..</code></td>
+<td>Go up three directories</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="git-aliases-shell">🔧 Git Aliases (Shell)</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+<th>More Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gst</code></td>
+<td><code>git status</code></td>
+<td>Show git status</td>
+<td><a href="https://git-scm.com/docs/git-status">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gco</code></td>
+<td><code>git checkout</code></td>
+<td>Switch branches</td>
+<td><a href="https://git-scm.com/docs/git-checkout">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gcb</code></td>
+<td><code>git checkout -b</code></td>
+<td>Create and switch to new branch</td>
+<td><a href="https://git-scm.com/docs/git-checkout">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gcm</code></td>
+<td><code>git commit -m</code></td>
+<td>Commit with message</td>
+<td><a href="https://git-scm.com/docs/git-commit">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gps</code></td>
+<td><code>git push</code></td>
+<td>Push to remote</td>
+<td><a href="https://git-scm.com/docs/git-push">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gpl</code></td>
+<td><code>git pull</code></td>
+<td>Pull from remote</td>
+<td><a href="https://git-scm.com/docs/git-pull">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gdf</code></td>
+<td><code>git diff</code></td>
+<td>Show differences</td>
+<td><a href="https://git-scm.com/docs/git-diff">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>glog</code></td>
+<td><code>git log --oneline --graph --decorate</code></td>
+<td>Pretty log with graph</td>
+<td><a href="https://git-scm.com/docs/git-log">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gaa</code></td>
+<td><code>git add .</code></td>
+<td>Add all files</td>
+<td><a href="https://git-scm.com/docs/git-add">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gac</code></td>
+<td><code>git add . &amp;&amp; git commit -m</code></td>
+<td>Add all and commit</td>
+<td><a href="https://git-scm.com/docs/git-add">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gpu</code></td>
+<td><code>git push -u origin HEAD</code></td>
+<td>Push and set upstream</td>
+<td><a href="https://git-scm.com/docs/git-push">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gpr</code></td>
+<td><code>git pull --rebase</code></td>
+<td>Pull with rebase</td>
+<td><a href="https://git-scm.com/docs/git-pull">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gstash</code></td>
+<td><code>git stash</code></td>
+<td>Stash changes</td>
+<td><a href="https://git-scm.com/docs/git-stash">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gpop</code></td>
+<td><code>git stash pop</code></td>
+<td>Apply and remove stash</td>
+<td><a href="https://git-scm.com/docs/git-stash">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gapply</code></td>
+<td><code>git stash apply</code></td>
+<td>Apply stash</td>
+<td><a href="https://git-scm.com/docs/git-stash">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gclean</code></td>
+<td><code>git clean -fd</code></td>
+<td>Clean untracked files</td>
+<td><a href="https://git-scm.com/docs/git-clean">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>greset</code></td>
+<td><code>git reset --hard HEAD</code></td>
+<td>Reset to HEAD</td>
+<td><a href="https://git-scm.com/docs/git-reset">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>gundo</code></td>
+<td><code>git reset --soft HEAD~1</code></td>
+<td>Undo last commit</td>
+<td><a href="https://git-scm.com/docs/git-reset">Git Docs</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="git-aliases-git-config">🔧 Git Aliases (Git Config)</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+<th>More Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>st</code></td>
+<td><code>status</code></td>
+<td>Show git status</td>
+<td><a href="https://git-scm.com/docs/git-status">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>co</code></td>
+<td><code>checkout</code></td>
+<td>Switch branches</td>
+<td><a href="https://git-scm.com/docs/git-checkout">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>br</code></td>
+<td><code>branch</code></td>
+<td>List branches</td>
+<td><a href="https://git-scm.com/docs/git-branch">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>ci</code></td>
+<td><code>commit</code></td>
+<td>Make commit</td>
+<td><a href="https://git-scm.com/docs/git-commit">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>cob</code></td>
+<td><code>checkout -b</code></td>
+<td>Create and checkout branch</td>
+<td><a href="https://git-scm.com/docs/git-checkout">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>com</code></td>
+<td><code>checkout main</code></td>
+<td>Switch to main branch</td>
+<td><a href="https://git-scm.com/docs/git-checkout">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>cod</code></td>
+<td><code>checkout develop</code></td>
+<td>Switch to develop branch</td>
+<td><a href="https://git-scm.com/docs/git-checkout">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>co-</code></td>
+<td><code>checkout -</code></td>
+<td>Switch to previous branch</td>
+<td><a href="https://git-scm.com/docs/git-checkout">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>bd</code></td>
+<td><code>branch -d</code></td>
+<td>Delete branch (safe)</td>
+<td><a href="https://git-scm.com/docs/git-branch">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>bD</code></td>
+<td><code>branch -D</code></td>
+<td>Force delete branch</td>
+<td><a href="https://git-scm.com/docs/git-branch">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>bm</code></td>
+<td><code>branch -m</code></td>
+<td>Rename branch</td>
+<td><a href="https://git-scm.com/docs/git-branch">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>ba</code></td>
+<td><code>branch -a</code></td>
+<td>List all branches</td>
+<td><a href="https://git-scm.com/docs/git-branch">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>bv</code></td>
+<td><code>branch -v</code></td>
+<td>List branches with last commit</td>
+<td><a href="https://git-scm.com/docs/git-branch">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>bvv</code></td>
+<td><code>branch -vv</code></td>
+<td>List branches with tracking info</td>
+<td><a href="https://git-scm.com/docs/git-branch">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>lg</code></td>
+<td><code>log --oneline --decorate --graph --all</code></td>
+<td>Pretty log with graph</td>
+<td><a href="https://git-scm.com/docs/git-log">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>lga</code></td>
+<td><code>log --oneline --decorate --graph --all --branches --tags</code></td>
+<td>Extended pretty log</td>
+<td><a href="https://git-scm.com/docs/git-log">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>amend</code></td>
+<td><code>commit --amend --no-edit</code></td>
+<td>Amend last commit</td>
+<td><a href="https://git-scm.com/docs/git-commit">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>undo</code></td>
+<td><code>reset HEAD~1</code></td>
+<td>Undo last commit</td>
+<td><a href="https://git-scm.com/docs/git-reset">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>wip</code></td>
+<td><code>commit -am "WIP"</code></td>
+<td>Work in progress commit</td>
+<td><a href="https://git-scm.com/docs/git-commit">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>unwip</code></td>
+<td><code>reset HEAD~1</code></td>
+<td>Undo WIP commit</td>
+<td><a href="https://git-scm.com/docs/git-reset">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>stash-all</code></td>
+<td><code>stash push --include-untracked</code></td>
+<td>Stash including untracked</td>
+<td><a href="https://git-scm.com/docs/git-stash">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>pop</code></td>
+<td><code>stash pop</code></td>
+<td>Apply and remove stash</td>
+<td><a href="https://git-scm.com/docs/git-stash">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>apply</code></td>
+<td><code>stash apply</code></td>
+<td>Apply stash</td>
+<td><a href="https://git-scm.com/docs/git-stash">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>cleanup</code></td>
+<td><code>branch --merged \| grep -v '\*\|main\|develop' \| xargs -n 1 git branch -d</code></td>
+<td>Clean merged branches</td>
+<td><a href="https://git-scm.com/docs/git-branch">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>uncommit</code></td>
+<td><code>reset --soft HEAD~1</code></td>
+<td>Undo commit, keep changes</td>
+<td><a href="https://git-scm.com/docs/git-reset">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>recommit</code></td>
+<td><code>commit -c ORIG_HEAD</code></td>
+<td>Reuse previous commit message</td>
+<td><a href="https://git-scm.com/docs/git-commit">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>graph</code></td>
+<td><code>log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit</code></td>
+<td>Colored graph log</td>
+<td><a href="https://git-scm.com/docs/git-log">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>root</code></td>
+<td><code>rev-parse --show-toplevel</code></td>
+<td>Show git root directory</td>
+<td><a href="https://git-scm.com/docs/git-rev-parse">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>files</code></td>
+<td><code>diff --name-only</code></td>
+<td>Show changed files</td>
+<td><a href="https://git-scm.com/docs/git-diff">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>diffc</code></td>
+<td><code>diff --cached</code></td>
+<td>Show staged changes</td>
+<td><a href="https://git-scm.com/docs/git-diff">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>addp</code></td>
+<td><code>add --patch</code></td>
+<td>Interactive add</td>
+<td><a href="https://git-scm.com/docs/git-add">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>unadd</code></td>
+<td><code>reset HEAD</code></td>
+<td>Unstage files</td>
+<td><a href="https://git-scm.com/docs/git-reset">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>staged</code></td>
+<td><code>diff --cached</code></td>
+<td>Show staged changes</td>
+<td><a href="https://git-scm.com/docs/git-diff">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>unstaged</code></td>
+<td><code>diff</code></td>
+<td>Show unstaged changes</td>
+<td><a href="https://git-scm.com/docs/git-diff">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>lasttag</code></td>
+<td><code>describe --tags --abbrev=0</code></td>
+<td>Show last tag</td>
+<td><a href="https://git-scm.com/docs/git-describe">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>lasttagdistance</code></td>
+<td><code>describe --tags --abbrev=0 --long</code></td>
+<td>Show last tag with distance</td>
+<td><a href="https://git-scm.com/docs/git-describe">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>changelog</code></td>
+<td><code>log --pretty=format:'* %s (%h)' --since='$(git lasttag)'</code></td>
+<td>Generate changelog</td>
+<td><a href="https://git-scm.com/docs/git-log">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>save</code></td>
+<td><code>stash push -m</code></td>
+<td>Stash with message</td>
+<td><a href="https://git-scm.com/docs/git-stash">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>restore</code></td>
+<td><code>stash pop</code></td>
+<td>Restore stash</td>
+<td><a href="https://git-scm.com/docs/git-stash">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>list</code></td>
+<td><code>stash list</code></td>
+<td>List stashes</td>
+<td><a href="https://git-scm.com/docs/git-stash">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>drop</code></td>
+<td><code>stash drop</code></td>
+<td>Delete stash</td>
+<td><a href="https://git-scm.com/docs/git-stash">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>fp</code></td>
+<td><code>fetch --prune</code></td>
+<td>Fetch and prune</td>
+<td><a href="https://git-scm.com/docs/git-fetch">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>fap</code></td>
+<td><code>fetch --all --prune</code></td>
+<td>Fetch all remotes and prune</td>
+<td><a href="https://git-scm.com/docs/git-fetch">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>pullup</code></td>
+<td><code>pull --rebase upstream main</code></td>
+<td>Pull from upstream main</td>
+<td><a href="https://git-scm.com/docs/git-pull">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>pushup</code></td>
+<td><code>push -u origin HEAD</code></td>
+<td>Push and set upstream</td>
+<td><a href="https://git-scm.com/docs/git-push">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>sync</code></td>
+<td><code>fetch --all --prune &amp;&amp; git pull --rebase</code></td>
+<td>Sync with all remotes</td>
+<td><a href="https://git-scm.com/docs/git-fetch">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>syncup</code></td>
+<td><code>fetch upstream &amp;&amp; git rebase upstream/main</code></td>
+<td>Sync with upstream</td>
+<td><a href="https://git-scm.com/docs/git-fetch">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>squash</code></td>
+<td><code>rebase -i HEAD~2</code></td>
+<td>Interactive rebase last 2 commits</td>
+<td><a href="https://git-scm.com/docs/git-rebase">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>fixup</code></td>
+<td><code>commit --fixup</code></td>
+<td>Create fixup commit</td>
+<td><a href="https://git-scm.com/docs/git-commit">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>autofix</code></td>
+<td><code>rebase -i --autosquash</code></td>
+<td>Auto-squash fixup commits</td>
+<td><a href="https://git-scm.com/docs/git-rebase">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>conflicts</code></td>
+<td><code>diff --name-only --diff-filter=U</code></td>
+<td>Show conflicted files</td>
+<td><a href="https://git-scm.com/docs/git-diff">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>resolve</code></td>
+<td><code>add</code></td>
+<td>Mark conflicts as resolved</td>
+<td><a href="https://git-scm.com/docs/git-add">Git Docs</a></td>
+</tr>
+<tr>
+<td><code>unresolve</code></td>
+<td><code>reset HEAD</code></td>
+<td>Unstage resolved conflicts</td>
+<td><a href="https://git-scm.com/docs/git-reset">Git Docs</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="github-aliases">🐙 GitHub Aliases</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+<th>More Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pr</code></td>
+<td><code>git push -u origin HEAD &amp;&amp; gh pr create --title "$(git log -1 --pretty=%B)" --body ""</code></td>
+<td>Create PR with commit message</td>
+<td><a href="https://cli.github.com/">GitHub CLI</a></td>
+</tr>
+<tr>
+<td><code>prd</code></td>
+<td><code>git push -u origin HEAD &amp;&amp; gh pr create --draft --title "$(git log -1 --pretty=%B)" --body ""</code></td>
+<td>Create draft PR</td>
+<td><a href="https://cli.github.com/">GitHub CLI</a></td>
+</tr>
+<tr>
+<td><code>prr</code></td>
+<td><code>gh pr review --approve</code></td>
+<td>Approve PR</td>
+<td><a href="https://cli.github.com/">GitHub CLI</a></td>
+</tr>
+<tr>
+<td><code>prm</code></td>
+<td><code>gh pr merge --squash</code></td>
+<td>Merge PR with squash</td>
+<td><a href="https://cli.github.com/">GitHub CLI</a></td>
+</tr>
+<tr>
+<td><code>prc</code></td>
+<td><code>gh pr close</code></td>
+<td>Close PR</td>
+<td><a href="https://cli.github.com/">GitHub CLI</a></td>
+</tr>
+<tr>
+<td><code>prl</code></td>
+<td><code>gh pr list</code></td>
+<td>List PRs</td>
+<td><a href="https://cli.github.com/">GitHub CLI</a></td>
+</tr>
+<tr>
+<td><code>prv</code></td>
+<td><code>gh pr view</code></td>
+<td>View PR</td>
+<td><a href="https://cli.github.com/">GitHub CLI</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="docker-aliases">🐳 Docker Aliases</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+<th>More Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d</code></td>
+<td><code>docker</code></td>
+<td>Docker command</td>
+<td><a href="https://docs.docker.com/">Docker Docs</a></td>
+</tr>
+<tr>
+<td><code>dc</code></td>
+<td><code>docker-compose</code></td>
+<td>Docker Compose</td>
+<td><a href="https://docs.docker.com/compose/">Docker Compose</a></td>
+</tr>
+<tr>
+<td><code>dps</code></td>
+<td><code>docker ps</code></td>
+<td>List running containers</td>
+<td><a
+href="https://docs.docker.com/engine/reference/commandline/ps/">Docker
+Docs</a></td>
+</tr>
+<tr>
+<td><code>dpsa</code></td>
+<td><code>docker ps -a</code></td>
+<td>List all containers</td>
+<td><a
+href="https://docs.docker.com/engine/reference/commandline/ps/">Docker
+Docs</a></td>
+</tr>
+<tr>
+<td><code>di</code></td>
+<td><code>docker images</code></td>
+<td>List images</td>
+<td><a
+href="https://docs.docker.com/engine/reference/commandline/images/">Docker
+Docs</a></td>
+</tr>
+<tr>
+<td><code>drm</code></td>
+<td><code>docker rm</code></td>
+<td>Remove container</td>
+<td><a
+href="https://docs.docker.com/engine/reference/commandline/rm/">Docker
+Docs</a></td>
+</tr>
+<tr>
+<td><code>drmi</code></td>
+<td><code>docker rmi</code></td>
+<td>Remove image</td>
+<td><a
+href="https://docs.docker.com/engine/reference/commandline/rmi/">Docker
+Docs</a></td>
+</tr>
+<tr>
+<td><code>dstop</code></td>
+<td><code>docker stop</code></td>
+<td>Stop container</td>
+<td><a
+href="https://docs.docker.com/engine/reference/commandline/stop/">Docker
+Docs</a></td>
+</tr>
+<tr>
+<td><code>dstart</code></td>
+<td><code>docker start</code></td>
+<td>Start container</td>
+<td><a
+href="https://docs.docker.com/engine/reference/commandline/start/">Docker
+Docs</a></td>
+</tr>
+<tr>
+<td><code>drestart</code></td>
+<td><code>docker restart</code></td>
+<td>Restart container</td>
+<td><a
+href="https://docs.docker.com/engine/reference/commandline/restart/">Docker
+Docs</a></td>
+</tr>
+<tr>
+<td><code>dlogs</code></td>
+<td><code>docker logs</code></td>
+<td>Show container logs</td>
+<td><a
+href="https://docs.docker.com/engine/reference/commandline/logs/">Docker
+Docs</a></td>
+</tr>
+<tr>
+<td><code>dexec</code></td>
+<td><code>docker exec -it</code></td>
+<td>Execute command in container</td>
+<td><a
+href="https://docs.docker.com/engine/reference/commandline/exec/">Docker
+Docs</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="kubernetes-aliases">☸️ Kubernetes Aliases</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+<th>More Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>k</code></td>
+<td><code>kubectl</code></td>
+<td>Kubernetes command</td>
+<td><a
+href="https://kubernetes.io/docs/reference/kubectl/">kubectl</a></td>
+</tr>
+<tr>
+<td><code>kgp</code></td>
+<td><code>kubectl get pods</code></td>
+<td>Get pods</td>
+<td><a
+href="https://kubernetes.io/docs/reference/kubectl/">kubectl</a></td>
+</tr>
+<tr>
+<td><code>kgs</code></td>
+<td><code>kubectl get services</code></td>
+<td>Get services</td>
+<td><a
+href="https://kubernetes.io/docs/reference/kubectl/">kubectl</a></td>
+</tr>
+<tr>
+<td><code>kgd</code></td>
+<td><code>kubectl get deployments</code></td>
+<td>Get deployments</td>
+<td><a
+href="https://kubernetes.io/docs/reference/kubectl/">kubectl</a></td>
+</tr>
+<tr>
+<td><code>kgn</code></td>
+<td><code>kubectl get nodes</code></td>
+<td>Get nodes</td>
+<td><a
+href="https://kubernetes.io/docs/reference/kubectl/">kubectl</a></td>
+</tr>
+<tr>
+<td><code>kdp</code></td>
+<td><code>kubectl describe pod</code></td>
+<td>Describe pod</td>
+<td><a
+href="https://kubernetes.io/docs/reference/kubectl/">kubectl</a></td>
+</tr>
+<tr>
+<td><code>kds</code></td>
+<td><code>kubectl describe service</code></td>
+<td>Describe service</td>
+<td><a
+href="https://kubernetes.io/docs/reference/kubectl/">kubectl</a></td>
+</tr>
+<tr>
+<td><code>kdd</code></td>
+<td><code>kubectl describe deployment</code></td>
+<td>Describe deployment</td>
+<td><a
+href="https://kubernetes.io/docs/reference/kubectl/">kubectl</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="system-aliases">🖥️ System Aliases</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+<th>More Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>top</code></td>
+<td><code>htop</code></td>
+<td>Interactive process viewer</td>
+<td><a href="https://htop.dev/">htop</a></td>
+</tr>
+<tr>
+<td><code>ps</code></td>
+<td><code>procs</code></td>
+<td>Modern ps replacement</td>
+<td><a href="https://github.com/dalance/procs">procs</a></td>
+</tr>
+<tr>
+<td><code>du</code></td>
+<td><code>dust</code></td>
+<td>Modern du replacement</td>
+<td><a href="https://github.com/bootandy/dust">dust</a></td>
+</tr>
+<tr>
+<td><code>df</code></td>
+<td><code>dust</code></td>
+<td>Modern df replacement</td>
+<td><a href="https://github.com/bootandy/dust">dust</a></td>
+</tr>
+<tr>
+<td><code>free</code></td>
+<td><code>htop</code></td>
+<td>Memory usage</td>
+<td><a href="https://htop.dev/">htop</a></td>
+</tr>
+<tr>
+<td><code>ping</code></td>
+<td><code>gping</code></td>
+<td>Ping with graph</td>
+<td><a href="https://github.com/orf/gping">gping</a></td>
+</tr>
+<tr>
+<td><code>traceroute</code></td>
+<td><code>mtr</code></td>
+<td>Network diagnostic tool</td>
+<td><a href="https://www.bitwizard.nl/mtr/">mtr</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="network-aliases">🌐 Network Aliases</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+<th>More Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ports</code></td>
+<td><code>lsof -i -P -n \| grep LISTEN</code></td>
+<td>Show listening ports</td>
+<td><a href="https://linux.die.net/man/8/lsof">lsof</a></td>
+</tr>
+<tr>
+<td><code>myip</code></td>
+<td><code>curl -s https://ipinfo.io/ip</code></td>
+<td>Show public IP</td>
+<td><a href="https://ipinfo.io/">ipinfo.io</a></td>
+</tr>
+<tr>
+<td><code>localip</code></td>
+<td><code>ifconfig \| grep "inet " \| grep -v 127.0.0.1</code></td>
+<td>Show local IP</td>
+<td><a href="https://linux.die.net/man/8/ifconfig">ifconfig</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="utility-aliases">🛠️ Utility Aliases</h3>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+<th>More Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>c</code></td>
+<td><code>clear</code></td>
+<td>Clear screen</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>h</code></td>
+<td><code>history</code></td>
+<td>Show command history</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>j</code></td>
+<td><code>jobs</code></td>
+<td>Show background jobs</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td><code>fg</code></td>
+<td>Bring job to foreground</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td><code>bg</code></td>
+<td>Send job to background</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td><code>exit</code></td>
+<td>Exit shell</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td><code>exit</code></td>
+<td>Exit shell</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td><code>exit</code></td>
+<td>Exit shell</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>cls</code></td>
+<td><code>clear</code></td>
+<td>Clear screen</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>reload</code></td>
+<td><code>source ~/.zshrc</code></td>
+<td>Reload shell config</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>refresh</code></td>
+<td><code>source ~/.zshrc</code></td>
+<td>Reload shell config</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="editor-aliases">📝 Editor Aliases</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+<th>More Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>v</code></td>
+<td><code>code</code></td>
+<td>Open in VS Code</td>
+<td><a href="https://code.visualstudio.com/">VS Code</a></td>
+</tr>
+<tr>
+<td><code>nv</code></td>
+<td><code>nvim</code></td>
+<td>Open in Neovim</td>
+<td><a href="https://neovim.io/">Neovim</a></td>
+</tr>
+<tr>
+<td><code>vim</code></td>
+<td><code>nvim</code></td>
+<td>Open in Neovim</td>
+<td><a href="https://neovim.io/">Neovim</a></td>
+</tr>
+<tr>
+<td><code>vi</code></td>
+<td><code>nvim</code></td>
+<td>Open in Neovim</td>
+<td><a href="https://neovim.io/">Neovim</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="package-manager-aliases">📦 Package Manager Aliases</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+<th>More Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bi</code></td>
+<td><code>brew install</code></td>
+<td>Install package</td>
+<td><a href="https://brew.sh/">Homebrew</a></td>
+</tr>
+<tr>
+<td><code>bu</code></td>
+<td><code>brew uninstall</code></td>
+<td>Uninstall package</td>
+<td><a href="https://brew.sh/">Homebrew</a></td>
+</tr>
+<tr>
+<td><code>bs</code></td>
+<td><code>brew search</code></td>
+<td>Search packages</td>
+<td><a href="https://brew.sh/">Homebrew</a></td>
+</tr>
+<tr>
+<td><code>bup</code></td>
+<td><code>brew update &amp;&amp; brew upgrade</code></td>
+<td>Update Homebrew and packages</td>
+<td><a href="https://brew.sh/">Homebrew</a></td>
+</tr>
+<tr>
+<td><code>bcl</code></td>
+<td><code>brew cleanup</code></td>
+<td>Clean up old packages</td>
+<td><a href="https://brew.sh/">Homebrew</a></td>
+</tr>
+<tr>
+<td><code>ni</code></td>
+<td><code>npm install</code></td>
+<td>Install npm package</td>
+<td><a href="https://docs.npmjs.com/">npm</a></td>
+</tr>
+<tr>
+<td><code>nu</code></td>
+<td><code>npm uninstall</code></td>
+<td>Uninstall npm package</td>
+<td><a href="https://docs.npmjs.com/">npm</a></td>
+</tr>
+<tr>
+<td><code>ns</code></td>
+<td><code>npm start</code></td>
+<td>Start npm script</td>
+<td><a href="https://docs.npmjs.com/">npm</a></td>
+</tr>
+<tr>
+<td><code>nt</code></td>
+<td><code>npm test</code></td>
+<td>Run npm tests</td>
+<td><a href="https://docs.npmjs.com/">npm</a></td>
+</tr>
+<tr>
+<td><code>nb</code></td>
+<td><code>npm run build</code></td>
+<td>Build npm project</td>
+<td><a href="https://docs.npmjs.com/">npm</a></td>
+</tr>
+<tr>
+<td><code>nd</code></td>
+<td><code>npm run dev</code></td>
+<td>Run dev server</td>
+<td><a href="https://docs.npmjs.com/">npm</a></td>
+</tr>
+<tr>
+<td><code>pi</code></td>
+<td><code>pnpm install</code></td>
+<td>Install pnpm package</td>
+<td><a href="https://pnpm.io/">pnpm</a></td>
+</tr>
+<tr>
+<td><code>pu</code></td>
+<td><code>pnpm uninstall</code></td>
+<td>Uninstall pnpm package</td>
+<td><a href="https://pnpm.io/">pnpm</a></td>
+</tr>
+<tr>
+<td><code>ps</code></td>
+<td><code>pnpm start</code></td>
+<td>Start pnpm script</td>
+<td><a href="https://pnpm.io/">pnpm</a></td>
+</tr>
+<tr>
+<td><code>pt</code></td>
+<td><code>pnpm test</code></td>
+<td>Run pnpm tests</td>
+<td><a href="https://pnpm.io/">pnpm</a></td>
+</tr>
+<tr>
+<td><code>pb</code></td>
+<td><code>pnpm run build</code></td>
+<td>Build pnpm project</td>
+<td><a href="https://pnpm.io/">pnpm</a></td>
+</tr>
+<tr>
+<td><code>pd</code></td>
+<td><code>pnpm run dev</code></td>
+<td>Run dev server</td>
+<td><a href="https://pnpm.io/">pnpm</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="development-aliases">🏠 Development Aliases</h3>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+<th>More Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dev</code></td>
+<td><code>cd ~/Development</code></td>
+<td>Go to Development directory</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>proj</code></td>
+<td><code>cd ~/Development/projects</code></td>
+<td>Go to projects directory</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>dot</code></td>
+<td><code>cd ~/Development/dotfiles</code></td>
+<td>Go to dotfiles directory</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>ws</code></td>
+<td><code>cd ~/Development/workspace</code></td>
+<td>Go to workspace directory</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
 <h2 id="environment-variables">🌍 Environment Variables</h2>
 <p>The setup configures comprehensive environment variables for seamless
 development:</p>

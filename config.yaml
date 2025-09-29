@@ -374,6 +374,7 @@ packages:
       - "bandwhich"
       - "bottom"
       - "navi"
+      - "ngrok"
   frontend:
     brew:
       - "yarn"
@@ -668,18 +669,10 @@ tool_info:
     description: "Visualization for AI metrics"
     docs: "https://grafana.com/docs/"
     category: "AI Monitoring"
-  opensearch:
-    description: "Open source search engine with ML features (Elasticsearch alternative)"
-    docs: "https://opensearch.org/docs/latest/"
-    category: "AI Database"
   opensearch-dashboards:
     description: "Data visualization for OpenSearch (Kibana alternative)"
     docs: "https://opensearch.org/docs/latest/dashboards/"
     category: "AI Monitoring"
-  open-webui:
-    description: "Web UI for local LLMs (Docker)"
-    docs: "https://docs.openwebui.com/"
-    category: "AI UI"
   jupyterlab:
     description: "JupyterLab interactive development environment"
     docs: "https://jupyterlab.readthedocs.io/"
@@ -732,11 +725,6 @@ tool_info:
     description: "GPU-accelerated terminal emulator with advanced features"
     docs: "https://sw.kovidgoyal.net/kitty/"
     category: "Terminal"
-  []:
-    name: "[]"
-    description: "cask package"
-    category: "Unknown"
-    docs: "https://github.com/[]"
   age:
     name: "age"
     description: "Simple file encryption"
@@ -942,6 +930,11 @@ tool_info:
     description: "Interactive cheatsheet tool"
     category: "Terminal"
     docs: "https://github.com/denisidoro/navi"
+  ngrok:
+    name: "ngrok"
+    description: "Secure tunneling to localhost"
+    category: "Dev UX"
+    docs: "https://ngrok.com/docs"
   neofetch:
     name: "neofetch"
     description: "System information tool"

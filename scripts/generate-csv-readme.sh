@@ -96,21 +96,22 @@ generate_readme_from_csv() {
     # shellcheck disable=SC2034 # total_packages is used for validation
     local total_packages=$(($(wc -l < "$CSV_FILE") - 1))  # Subtract header line
     
-    cat > "$OUTPUT_FILE" << 'HEADER'
+    # Write header with proper date expansion
+    cat > "$OUTPUT_FILE" << EOF
 # Environment Setup - Complete Documentation
 
 **Version:** 4.0.0  
-**Generated:** $(date)  
+**Generated:** $(date '+%Y-%m-%d %H:%M:%S')  
 **Total Packages:** 113+ tools and applications
 
 ## 🚀 Quick Start
 
-```bash
+\`\`\`bash
 # Clone and run
 git clone https://github.com/your-username/env-setup.git
 cd env-setup
 ./setup-env.sh
-```
+\`\`\`
 
 ## 📋 What This Setup Does
 
@@ -129,7 +130,7 @@ This comprehensive environment setup installs and configures:
 
 The following packages are installed via Homebrew (brew) and Homebrew Cask (cask):
 
-HEADER
+EOF
 
     # Generate package list from CSV as a table
     # First, sort by category then by name
