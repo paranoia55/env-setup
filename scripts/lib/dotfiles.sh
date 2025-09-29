@@ -13,7 +13,25 @@ if [ -n "${BASH_SOURCE[0]:-}" ]; then
 else
     LIB_DIR="$(cd "$(dirname "$0")" && pwd)"
 fi
-source "$LIB_DIR/common.sh"
+
+# Check if common.sh exists and source it
+if [ -f "$LIB_DIR/common.sh" ]; then
+    source "$LIB_DIR/common.sh"
+else
+    # Fallback log function if common.sh is not available
+    log() {
+        local level="$1"
+        shift
+        local message="$*"
+        case "$level" in
+            "INFO") echo -e "\033[0;34m[INFO]\033[0m $message" ;;
+            "SUCCESS") echo -e "\033[0;32m[SUCCESS]\033[0m $message" ;;
+            "WARN") echo -e "\033[0;33m[WARN]\033[0m $message" ;;
+            "ERROR") echo -e "\033[0;31m[ERROR]\033[0m $message" ;;
+            *) echo -e "\033[0;34m[INFO]\033[0m $message" ;;
+        esac
+    }
+fi
 
 # Configure Git
 configure_git() {
@@ -68,6 +86,18 @@ configure_git() {
     pop = stash pop
     apply = stash apply
     
+    # Checkout and branch aliases
+    cob = checkout -b
+    com = checkout main
+    cod = checkout develop
+    co- = checkout -
+    bd = branch -d
+    bD = branch -D
+    bm = branch -m
+    ba = branch -a
+    bv = branch -v
+    bvv = branch -vv
+    
     # Advanced aliases
     cleanup = "!git branch --merged | grep -v '\\*\\|main\\|develop' | xargs -n 1 git branch -d"
     uncommit = reset --soft HEAD~1
@@ -83,6 +113,24 @@ configure_git() {
     lasttag = describe --tags --abbrev=0
     lasttagdistance = describe --tags --abbrev=0 --long
     changelog = !git log --pretty=format:'* %s (%h)' --since='$(git lasttag)'
+    
+    # Workflow aliases
+    save = stash push -m
+    restore = stash pop
+    list = stash list
+    drop = stash drop
+    fp = fetch --prune
+    fap = fetch --all --prune
+    pullup = pull --rebase upstream main
+    pushup = push -u origin HEAD
+    sync = "!git fetch --all --prune && git pull --rebase"
+    syncup = "!git fetch upstream && git rebase upstream/main"
+    squash = rebase -i HEAD~2
+    fixup = commit --fixup
+    autofix = rebase -i --autosquash
+    conflicts = diff --name-only --diff-filter=U
+    resolve = add
+    unresolve = reset HEAD
     
     # GitHub aliases
     pr = "!f() { git push -u origin HEAD && gh pr create --title \"$(git log -1 --pretty=%B)\" --body \"\" \"$@\"; }; f"
@@ -718,6 +766,265 @@ EOF
     fi
 }
 
+# Configure GPG for Git signing
+configure_gpg() {
+    log "INFO" "Configuring GPG for Git signing..." >&2
+    
+    # Check if GPG is installed
+    if ! command -v gpg >/dev/null 2>&1; then
+        log "ERROR" "GPG is not installed. Please install it first:" >&2
+        log "INFO" "  brew install gnupg" >&2
+        return 1
+    fi
+    
+    # Create .gnupg directory if it doesn't exist
+    mkdir -p "$HOME/.gnupg"
+    chmod 700 "$HOME/.gnupg"
+    
+    # Configure GPG settings
+    cat > "$HOME/.gnupg/gpg.conf" << 'EOF'
+# GPG Configuration for Git signing
+use-agent
+pinentry-mode loopback
+
+# Vigilant mode - Enhanced security verification
+require-cross-certification
+verify-options show-uid-validity
+list-options show-uid-validity
+verify-options show-photos
+list-options show-photos
+verify-options show-notations
+list-options show-notations
+verify-options show-policy-url
+list-options show-policy-url
+verify-options show-std-notations
+list-options show-std-notations
+verify-options show-keyserver-urls
+list-options show-keyserver-urls
+
+# Additional security settings
+keyserver-options auto-key-retrieve
+keyserver-options include-revoked
+keyserver-options no-honor-keyserver-url
+
+# Display settings
+display-charset utf-8
+utf8-strings
+
+# Cipher preferences
+cipher-algo AES256
+digest-algo SHA512
+cert-digest-algo SHA512
+compress-algo 1
+
+# Verbose output for maximum information
+verbose
+EOF
+
+    # Check if we already have a GPG key
+    local existing_key
+    existing_key=$(gpg --list-secret-keys --keyid-format=long 2>/dev/null | grep "^sec" | head -1 | awk '{print $2}' | cut -d'/' -f2)
+    
+    if [ -n "$existing_key" ]; then
+        log "INFO" "Existing GPG key found: $existing_key" >&2
+        echo "$existing_key"
+        return 0
+    fi
+    
+    # Generate new GPG key
+    log "INFO" "Generating new GPG key..." >&2
+    
+    # Get user information
+    local git_name git_email
+    git_name=$(git config user.name 2>/dev/null || echo "")
+    git_email=$(git config user.email 2>/dev/null || echo "")
+    
+    if [ -z "$git_name" ] || [ -z "$git_email" ]; then
+        log "WARN" "Git user name or email not configured" >&2
+        log "INFO" "Please configure Git first:" >&2
+        log "INFO" "  git config --global user.name 'Your Name'" >&2
+        log "INFO" "  git config --global user.email 'your.email@example.com'" >&2
+        return 1
+    fi
+    
+    # Create GPG key batch file
+    cat > /tmp/gpg_key_batch << EOF
+%echo Generating a new GPG key
+Key-Type: RSA
+Key-Length: 4096
+Subkey-Type: RSA
+Subkey-Length: 4096
+Name-Real: $git_name
+Name-Email: $git_email
+Expire-Date: 0
+%no-protection
+%commit
+%echo GPG key generation completed
+EOF
+
+    # Generate the key
+    if gpg --batch --generate-key /tmp/gpg_key_batch >/dev/null 2>&1; then
+        # Get the new key ID
+        local new_key
+        new_key=$(gpg --list-secret-keys --keyid-format=long 2>/dev/null | grep "^sec" | head -1 | awk '{print $2}' | cut -d'/' -f2)
+        
+        if [ -n "$new_key" ]; then
+            log "SUCCESS" "GPG key generated successfully: $new_key" >&2
+            
+            # Configure Git to use this key for signing
+            git config --global user.signingkey "$new_key"
+            git config --global commit.gpgsign true
+            git config --global tag.gpgsign true
+            
+            log "SUCCESS" "Git configured to use GPG key for signing" >&2
+            
+            # Display the public key
+            log "INFO" "GPG public key (copy this to GitHub):" >&2
+            echo "" >&2
+            gpg --armor --export "$new_key" >&2
+            echo "" >&2
+            
+            # Clean up
+            rm -f /tmp/gpg_key_batch
+            
+            echo "$new_key"
+            return 0
+        else
+            log "ERROR" "Failed to retrieve generated GPG key" >&2
+            rm -f /tmp/gpg_key_batch
+            return 1
+        fi
+    else
+        log "ERROR" "Failed to generate GPG key" >&2
+        rm -f /tmp/gpg_key_batch
+        return 1
+    fi
+}
+
+# Upload GPG key to GitHub
+upload_gpg_to_github() {
+    local gpg_key_id="$1"
+    
+    if [ -z "$gpg_key_id" ]; then
+        log "ERROR" "GPG key ID is required"
+        return 1
+    fi
+    
+    if command -v gh >/dev/null 2>&1; then
+        log "INFO" "GitHub CLI found, attempting to upload GPG key..."
+        
+        # Check if user is logged in to GitHub CLI
+        if gh auth status >/dev/null 2>&1; then
+            log "INFO" "GitHub CLI authenticated, uploading GPG key..."
+            
+            # Get the public key
+            local public_key
+            public_key=$(gpg --armor --export "$gpg_key_id" 2>/dev/null)
+            
+            if [ -n "$public_key" ]; then
+                # Upload the GPG key
+                if echo "$public_key" | gh gpg-key add --title "$(hostname) - $(date +%Y-%m-%d)" >/dev/null 2>&1; then
+                    log "SUCCESS" "GPG key uploaded to GitHub successfully!"
+                    log "INFO" "Your commits will now be signed with GPG"
+                else
+                    log "WARN" "Failed to upload GPG key via GitHub CLI"
+                    log "INFO" "This usually means you need to authenticate with the correct permissions"
+                    log "INFO" "Please run: gh auth login --web --scopes 'admin:gpg_key'"
+                    log "INFO" "Or add the key manually at: https://github.com/settings/keys"
+                    show_gpg_instructions "$gpg_key_id"
+                fi
+            else
+                log "ERROR" "Failed to export GPG public key"
+                return 1
+            fi
+        else
+            log "INFO" "GitHub CLI not authenticated"
+            echo ""
+            log "INFO" "To upload your GPG key to GitHub automatically, we need to authenticate with GitHub CLI."
+            echo ""
+            read -p "Would you like to authenticate with GitHub CLI now? (y/N): " -n 1 -r
+            echo ""
+            
+            if [[ $REPLY =~ ^[Yy]$ ]]; then
+                log "INFO" "Starting GitHub CLI authentication..."
+                echo ""
+                log "INFO" "This will open a browser window for authentication."
+                log "INFO" "Please follow the prompts to authenticate with GitHub."
+                echo ""
+                
+                # Run GitHub CLI authentication
+                if gh auth login --web --scopes "admin:gpg_key" 2>/dev/null; then
+                    log "SUCCESS" "GitHub CLI authenticated successfully!"
+                    echo ""
+                    
+                    # Now try to upload the GPG key
+                    log "INFO" "Uploading GPG key to GitHub..."
+                    local public_key
+                    public_key=$(gpg --armor --export "$gpg_key_id" 2>/dev/null)
+                    
+                    if [ -n "$public_key" ]; then
+                        if echo "$public_key" | gh gpg-key add --title "$(hostname) - $(date +%Y-%m-%d)" >/dev/null 2>&1; then
+                            log "SUCCESS" "GPG key uploaded to GitHub successfully!"
+                            log "INFO" "Your commits will now be signed with GPG"
+                        else
+                            log "WARN" "Failed to upload GPG key via GitHub CLI"
+                            log "INFO" "Please add the key manually at: https://github.com/settings/keys"
+                            show_gpg_instructions "$gpg_key_id"
+                        fi
+                    else
+                        log "ERROR" "Failed to export GPG public key"
+                        return 1
+                    fi
+                else
+                    log "WARN" "GitHub CLI authentication failed or was cancelled"
+                    log "INFO" "Please add the key manually at: https://github.com/settings/keys"
+                    show_gpg_instructions "$gpg_key_id"
+                fi
+            else
+                log "INFO" "Skipping GitHub CLI authentication"
+                show_gpg_instructions "$gpg_key_id"
+            fi
+        fi
+    else
+        log "INFO" "GitHub CLI not found"
+        echo ""
+        log "INFO" "To enable automatic GPG key upload, install GitHub CLI:"
+        log "INFO" "  brew install gh"
+        echo ""
+        show_gpg_instructions "$gpg_key_id"
+    fi
+}
+
+# Show manual GPG key setup instructions
+show_gpg_instructions() {
+    local gpg_key_id="$1"
+    
+    if [ -z "$gpg_key_id" ]; then
+        log "ERROR" "GPG key ID is required"
+        return 1
+    fi
+    
+    log "INFO" "Manual GPG key setup instructions:"
+    echo ""
+    log "INFO" "1. Copy your GPG public key:"
+    echo ""
+    gpg --armor --export "$gpg_key_id"
+    echo ""
+    log "INFO" "2. Go to: https://github.com/settings/keys"
+    log "INFO" "3. Click 'New GPG key'"
+    log "INFO" "4. Paste the key above"
+    log "INFO" "5. Give it a title like '$(hostname) - $(date +%Y-%m-%d)'"
+    echo ""
+    log "INFO" "Your Git is already configured to sign commits with this key"
+    log "INFO" "Test it with: git commit --allow-empty -m 'Test GPG signing'"
+    
+    # Try to open GitHub settings in browser
+    if command -v open >/dev/null 2>&1; then
+        log "INFO" "Opening GitHub GPG settings in browser..."
+        open "https://github.com/settings/keys"
+    fi
+}
+
 # Configure development tools
 configure_dev_tools() {
     log "INFO" "Configuring development tools..."
@@ -824,4 +1131,28 @@ configure_dotfiles() {
     
     log "SUCCESS" "Dotfile configuration completed"
     log "INFO" "Please review and customize the generated configuration files"
+}
+
+# Main GPG configuration function
+configure_gpg_complete() {
+    log "INFO" "Setting up GPG for Git signing..."
+    
+    # Configure GPG and get key ID
+    local gpg_key_id
+    gpg_key_id=$(configure_gpg)
+    local gpg_exit_code=$?
+    
+    if [ $gpg_exit_code -eq 0 ] && [ -n "$gpg_key_id" ]; then
+        log "SUCCESS" "GPG key configured: $gpg_key_id"
+        
+        # Upload to GitHub
+        upload_gpg_to_github "$gpg_key_id"
+        
+        log "SUCCESS" "GPG setup completed!"
+        log "INFO" "Your commits will now be signed with GPG"
+        log "INFO" "Test it with: git commit --allow-empty -m 'Test GPG signing'"
+    else
+        log "ERROR" "Failed to configure GPG"
+        return 1
+    fi
 }

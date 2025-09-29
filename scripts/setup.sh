@@ -573,10 +573,19 @@ main() {
         else
             log "WARN" "SSH setup script not found"
         fi
+        
+        # Setup GPG for Git signing
+        log "INFO" "Setting up GPG for Git signing..."
+        if [ -f "$SCRIPT_DIR/gpg-setup.sh" ]; then
+            "$SCRIPT_DIR/gpg-setup.sh"
+        else
+            log "WARN" "GPG setup script not found"
+        fi
     else
         log "INFO" "DRY RUN: Would configure shell environment"
         log "INFO" "DRY RUN: Would configure dotfiles and system settings"
         log "INFO" "DRY RUN: Would setup SSH for GitHub"
+        log "INFO" "DRY RUN: Would setup GPG for Git signing"
     fi
     
     log "SUCCESS" "Setup completed!"
