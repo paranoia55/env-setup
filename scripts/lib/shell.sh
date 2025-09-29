@@ -790,6 +790,32 @@ EOF
     fi
 }
 
+# Configure shell completions
+configure_shell_completions() {
+    log "INFO" "Configuring shell completions..."
+    
+    cat >> "$HOME/.zshrc" << 'EOF'
+
+# Shell Completions
+# Initialize zsh completion system
+autoload -U compinit && compinit
+
+# ngrok completion
+if command -v ngrok &>/dev/null; then
+    eval "$(ngrok completion)"
+fi
+
+# Additional completions can be added here
+# Example: kubectl completion
+# if command -v kubectl &>/dev/null; then
+#     source <(kubectl completion zsh)
+# fi
+
+EOF
+
+    log "SUCCESS" "Shell completions configured"
+}
+
 # Configure terminals
 configure_terminals() {
     log "INFO" "Configuring terminal applications..."
@@ -1085,6 +1111,9 @@ configure_shell() {
     
     # Configure history management
     configure_history_management
+    
+    # Configure shell completions
+    configure_shell_completions
     
     # Configure terminals
     configure_terminals
