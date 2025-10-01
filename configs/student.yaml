@@ -66,6 +66,7 @@ packages:
       - "sqlite"
     cask:
       - "tableplus"
+      - "pgadmin4"
   business:
     brew: []
     cask:

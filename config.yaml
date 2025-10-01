@@ -444,6 +444,7 @@ packages:
       - "duckdb"
     cask:
       - "tableplus"
+      - "pgadmin4"
   business:
     brew: []
     cask:
@@ -594,6 +595,10 @@ tool_info:
   tableplus:
     description: "GUI database client"
     docs: "https://tableplus.com/blog"
+    category: "Databases"
+  pgadmin4:
+    description: "PostgreSQL administration and development platform"
+    docs: "https://www.pgadmin.org/docs/"
     category: "Databases"
   visual-studio-code:
     description: "Code editor"

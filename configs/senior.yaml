@@ -91,6 +91,7 @@ packages:
       - "duckdb"
     cask:
       - "tableplus"
+      - "pgadmin4"
   business:
     brew: []
     cask:
