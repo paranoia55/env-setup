@@ -430,6 +430,7 @@ packages:
       - "yarn"
     cask:
       - "visual-studio-code"
+      - "docker"
       - "warp"
       - "iterm2"
       - "alacritty"
