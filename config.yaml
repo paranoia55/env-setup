@@ -478,6 +478,7 @@ packages:
       - "zoom"
       - "microsoft-teams"
       - "bitwarden"
+      - "spotify"
   ai:
     brew:
       - "ollama"
@@ -1126,3 +1127,7 @@ tool_info:
     description: "cask package"
     category: "Unknown"
     docs: "https://github.com/zoom"
+  spotify:
+    description: "Music streaming service"
+    docs: "https://support.spotify.com/"
+    category: "Entertainment"
